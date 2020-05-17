@@ -9,7 +9,7 @@ def send_cmd(command):
 print(os.getcwd())
 print(os.listdir(os.getcwd()))
 
-send_cmd('export PATH=/home/runner/work/MEEB_3DP/MEEB_3DP/my_marlin/buildroot/bin:$PATH')
+send_cmd('export PATH={0:s}/my_marlin/buildroot/bin:$PATH'.format(os.getcwd()))
 send_cmd('restore_configs')
 send_cmd('opt_set MOTHERBOARD {0:s}'.format(os.environ['BOARD']))
 print('The select board is {0:s}'.format(os.environ['BOARD']))
