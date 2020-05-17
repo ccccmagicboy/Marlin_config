@@ -31,9 +31,11 @@ subprocess.call(['{0:s}/buildroot/bin/restore_configs'.format(os.getcwd())])
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOTHERBOARD {1:s}'.format(os.getcwd(), os.environ['BOARD'])))
 print(colored('The select board is {0:s}'.format(os.environ['BOARD']), "green"))
 ########################################################################################################################
-
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set SERIAL_PORT {1:s}'.format(os.getcwd(), '-1')))
+print(colored('The main serial is USB serial.', "green"))
 ########################################################################################################################
-
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set SERIAL_PORT_2 {1:s}'.format(os.getcwd(), '1')))
+print(colored('The second serial is UART1', "green"))
 ########################################################################################################################
 
 str = '0000'
