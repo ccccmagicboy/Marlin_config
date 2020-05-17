@@ -32,7 +32,7 @@ os.chdir('my_marlin')
 
 subprocess.call(['{0:s}/buildroot/bin/restore_configs'.format(os.getcwd())])
 ########################################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set STRING_CONFIG_H_AUTHOR {1:s}'.format(os.getcwd(), '''"ccccmagicboy"''')))
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '(none, default config)', 'ccccmagicboy')
 print(colored('The author of the config file is {0:s}'.format('ccccmagicboy'), "green"))
 ########################################################################################################################
 
