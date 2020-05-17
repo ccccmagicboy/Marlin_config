@@ -14,7 +14,7 @@ print(os.listdir(os.getcwd()))
 send_cmd('chmod +x {0:s}/my_marlin/buildroot/bin/*'.format(os.getcwd()))
 sys.path.append('{0:s}/my_marlin/buildroot/bin'.format(os.getcwd()))
 print(sys.path)
-sys.chdir('my_marlin')
+os.chdir('my_marlin')
 
 send_cmd('restore_configs')
 send_cmd('opt_set MOTHERBOARD {0:s}'.format(os.environ['BOARD']))
