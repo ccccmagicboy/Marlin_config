@@ -16,7 +16,7 @@ sys.path.append('{0:s}/my_marlin/buildroot/bin'.format(os.getcwd()))
 print(sys.path)
 os.chdir('my_marlin')
 
-send_cmd('restore_configs')
+subprocess.call(['restore_configs'])
 send_cmd('opt_set MOTHERBOARD {0:s}'.format(os.environ['BOARD']))
 print('The select board is {0:s}'.format(os.environ['BOARD']))
 
