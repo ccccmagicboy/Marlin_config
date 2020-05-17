@@ -29,7 +29,6 @@ jobs:
     - name: Do real test
       id: testbench
       uses: ccccmagicboy/Marlin_config@master
-      working-directory: my_marlin
       with:
         BOARD: $BOARD
 

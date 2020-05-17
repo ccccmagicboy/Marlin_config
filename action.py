@@ -4,13 +4,14 @@ import subprocess
 
 def send_cmd(command):
     print(command)
-    result_str = subprocess.Popen(command, shell=True)
+    result_str =os.popen(command).read()
     print(result_str)
     return result_str
 
 print(os.getcwd())
 print(os.listdir(os.getcwd()))
 
+send_cmd('chmod +x {0:s}/my_marlin/buildroot/bin/*'.format(os.getcwd()))
 sys.path.append('{0:s}/my_marlin/buildroot/bin'.format(os.getcwd()))
 print(sys.path)
 
