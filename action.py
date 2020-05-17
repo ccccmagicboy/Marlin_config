@@ -1,6 +1,7 @@
 import os
 import sys
 import subprocess
+import shlex
 
 def send_cmd(command):
     print(command)
@@ -17,7 +18,7 @@ print(sys.path)
 os.chdir('my_marlin')
 
 subprocess.call(['restore_configs'])
-send_cmd('opt_set MOTHERBOARD {0:s}'.format(os.environ['BOARD']))
+subprocess.call(shlex.split('opt_set MOTHERBOARD {0:s}'.format(os.environ['BOARD'])))
 print('The select board is {0:s}'.format(os.environ['BOARD']))
 
 str = '0000'
