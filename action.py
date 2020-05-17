@@ -3,7 +3,7 @@ import sys
 
 def send_cmd(command):
     print(command)
-    result_str = os.popen([command]).read()
+    result_str = os.popen(command, shell=True).read()
     print(result_str)
     return result_str
 
