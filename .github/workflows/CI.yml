@@ -25,15 +25,11 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: master
-        
-    - name: Check action.py itself
-      run: |
-        sh script.sh
-      shell: bash
     
     - name: Do real test
       id: testbench
       uses: ccccmagicboy/Marlin_config@master
+      working-directory: my_marlin
       with:
         BOARD: $BOARD
 
