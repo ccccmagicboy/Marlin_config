@@ -24,10 +24,7 @@ jobs:
     - name: Checkout this repos
       uses: actions/checkout@v2
       with:
-        ref: master
-        
-    - name: Debug the action
-      uses: p3terx/debugger-action@master        
+        ref: master    
     
     - name: Do real test
       id: testbench
