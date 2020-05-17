@@ -25,6 +25,9 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: master
+        
+    - name: Debug the action
+      uses: p3terx/debugger-action@master        
     
     - name: Do real test
       id: testbench
