@@ -1,4 +1,4 @@
-# get_branch_str
-use it to get marlin fw branch string.
+# Marlin_config action
+Use it to config the marlin firmware Configuration.h/Configuration_adv.h files.
 
 

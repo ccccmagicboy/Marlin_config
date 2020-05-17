@@ -1,13 +1,13 @@
-name: 'Hack the inisetup'
-description: 'use it to set your custome inisetup.py file.'
+name: 'Marlin_firmware_config_tool'
+description: 'Use it to set your own custome Configuration.h/Configuration_adv.h file.'
 inputs:
-  slot:
-    description: 'input slot select'
+  BOARD:
+    description: 'input the board name'
     required: true
-    default: 'esp8266'
+    default: 'BOARD_CCROBOT_MEEB_3DP'
 outputs:
-  result: #
-    description: 'output string'
+  RESULT: #
+    description: 'output result string'
 runs:
   using: 'node12'
   main: 'action.js'

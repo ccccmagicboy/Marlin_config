@@ -1,13 +1,19 @@
 import os
-str = os.environ['INPUT_SLOT']
-print('input slot is {0:s}'.format(str))
+
+def send_cmd(command):
+    print(command)
+    result_str = os.popen(command).read()
+    print(result_str)
+    return result_str
 
 print(os.listdir(os.getcwd()))
 
-str = '0000'
+send_cmd('export PATH=/home/runner/work/MEEB_3DP/MEEB_3DP/my_marlin/buildroot/bin:$PATH')
+send_cmd('restore_configs')
+send_cmd('opt_set MOTHERBOARD {0:s}'.format(os.environ['BOARD']))
+print('The select board is {0:s}'.format(os.environ['BOARD']))
 
+str = '0000'
 if None != str:
-    command = 'echo ::set-output name=result::{0:s}'.format(str)
-    print(command)
-    print(os.popen(command).read())
+    send_cmd('echo ::set-output name=RESULT::{0:s}'.format(str))
 

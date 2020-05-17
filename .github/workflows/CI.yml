@@ -1,7 +1,7 @@
 #===================================================================================
 # Lisence: MIT
 # Author: ccccmagicboy
-# Url: https://ccrobot-online.com.cn
+# Url: https://ccrobot-online.com
 #===================================================================================
 
 name: CI
@@ -9,7 +9,7 @@ name: CI
 on: [push]
 
 env:
-  INPUT_SLOT: esp32
+  BOARD: BOARD_CCROBOT_MEEB_3DP
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
       matrix:
         os:
         - windows-2016
-        - ubuntu-16.04
+        - ubuntu-18.04
         - macos-latest
   
     runs-on: ${{ matrix.os }}
@@ -25,21 +25,23 @@ jobs:
     steps:
     - name: Checkout this repos
       uses: actions/checkout@v2
-      
+      with:
+        ref: master
+        
     - name: Check action.py itself
       run: |
         sh script.sh
       shell: bash
     
-    - name: Get the string
-      id: hack_inisetup
-      uses: ccccmagicboy/hack_inisetup@master
+    - name: Do real test
+      id: testbench
+      uses: ccccmagicboy/Marlin_config@master
       with:
-        slot: esp32
+        BOARD: $BOARD
 
     - name: Print the result
       run: |
-        echo ${{ steps.hack_inisetup.outputs.result }}
+        echo ${{ steps.testbench.outputs.RESULT }}
       shell: bash
         
         
