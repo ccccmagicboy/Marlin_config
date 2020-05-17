@@ -1,9 +1,10 @@
 import os
 import sys
+import subprocess
 
 def send_cmd(command):
     print(command)
-    result_str = os.popen(command, shell=True).read()
+    result_str = subprocess.Popen(command, shell=True)
     print(result_str)
     return result_str
 
