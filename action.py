@@ -3,6 +3,7 @@ import sys
 import subprocess
 import shlex
 from termcolor import colored
+import fileinput
 
 def replaceAll(file,searchExp,replaceExp):
     for line in fileinput.input(file, inplace=1):
