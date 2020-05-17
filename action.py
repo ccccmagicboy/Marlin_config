@@ -6,6 +6,7 @@ def send_cmd(command):
     print(result_str)
     return result_str
 
+print(os.getcwd())
 print(os.listdir(os.getcwd()))
 
 send_cmd('export PATH=/home/runner/work/MEEB_3DP/MEEB_3DP/my_marlin/buildroot/bin:$PATH')
