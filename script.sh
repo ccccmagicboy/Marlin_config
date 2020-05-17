@@ -15,6 +15,7 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 #echo $SCRIPTPATH
 
 python -m pip install --upgrade pip
+python -m pip install termcolor
 #pip install -U pytz
 #echo $(pwd)
 python $SCRIPTPATH/action.py
