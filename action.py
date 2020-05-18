@@ -155,6 +155,9 @@ print(colored('The neopixel led pin is define in board file, and here it is disa
 #NEOPIXEL_BRIGHTNESS########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_BRIGHTNESS {1:s}'.format(os.getcwd(), '255')))
 print(colored('The Initial brightness of neopixel led is set to {0:s}(hex).'.format('255'), "green"))
+#NEOPIXEL_TYPE########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_TYPE {1:s}'.format(os.getcwd(), 'NEO_GRB')))
+print(colored('The type of neopixel led is set to {0:s}.'.format('NEO_GRB'), "green"))
 #NEOPIXEL_STARTUP_TEST#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_STARTUP_TEST'.format(os.getcwd())))
 print(colored('The neopixel led startup test is enabled', "green"))
