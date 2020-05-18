@@ -71,9 +71,12 @@ print(colored('The bed max temperature is set to {0:s}'.format('125'), "green"))
 #PIDTEMPBED#############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PIDTEMPBED'.format(os.getcwd())))
 print(colored('The bed pid is enabled', "green"))
-#PREVENT_LENGTHY_EXTRUDE################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PREVENT_LENGTHY_EXTRUDE {1:s}'.format(os.getcwd(), '450')))
+#EXTRUDE_MAXLENGTH################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set EXTRUDE_MAXLENGTH {1:s}'.format(os.getcwd(), '450')))
 print(colored('The max extrude lengthy is set to {0:s}'.format('450'), "green"))
+#THERMAL_PROTECTION_CHAMBER################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable THERMAL_PROTECTION_CHAMBER'.format(os.getcwd())))
+print(colored('The chamber thermal protection is disabled', "red"))
 #ENDSTOPPULLUPS#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ENDSTOPPULLUPS'.format(os.getcwd())))
 print(colored('The endstop pull-up resistor are enabled', "green"))
@@ -151,13 +154,16 @@ subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_LED'.format
 print(colored('The neopixel led is enabled', "green"))
 #NEOPIXEL_PIN#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable NEOPIXEL_PIN'.format(os.getcwd())))
-print(colored('The neopixel led pin is define in board file, and here it is disabled', "green"))
+print(colored('The neopixel led pin is define in board file, and here it is disabled', "red"))
 #NEOPIXEL_BRIGHTNESS########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_BRIGHTNESS {1:s}'.format(os.getcwd(), '255')))
 print(colored('The Initial brightness of neopixel led is set to {0:s}(hex).'.format('255'), "green"))
 #NEOPIXEL_TYPE########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_TYPE {1:s}'.format(os.getcwd(), 'NEO_GRB')))
 print(colored('The type of neopixel led is set to {0:s}.'.format('NEO_GRB'), "green"))
+#NEOPIXEL_IS_SEQUENTIAL################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable NEOPIXEL_IS_SEQUENTIAL'.format(os.getcwd())))
+print(colored('The neopixel sequential is disabled', "red"))
 #NEOPIXEL_STARTUP_TEST#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_STARTUP_TEST'.format(os.getcwd())))
 print(colored('The neopixel led startup test is enabled', "green"))
