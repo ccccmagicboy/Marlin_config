@@ -32,23 +32,26 @@ os.chdir('my_marlin')
 # opt_set
 
 subprocess.call(['{0:s}/buildroot/bin/restore_configs'.format(os.getcwd())])
-########################################################################################################################
+#STRING_CONFIG_H_AUTHOR#################################################################################################
 replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '(none, default config)', 'ccccmagicboy')
 print(colored('The author of the config file is {0:s}'.format('ccccmagicboy'), "green"))
-########################################################################################################################
-
-########################################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOTHERBOARD {1:s}'.format(os.getcwd(), os.environ['BOARD'])))
-print(colored('The select board is {0:s}'.format(os.environ['BOARD']), "green"))
-########################################################################################################################
+#SERIAL_PORT############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set SERIAL_PORT {1:s}'.format(os.getcwd(), '-1')))
 print(colored('The main serial is USB serial.', "green"))
-########################################################################################################################
+#SERIAL_PORT_2##########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set SERIAL_PORT_2 {1:s}'.format(os.getcwd(), '1')))
 print(colored('The second serial is UART1', "green"))
+#BAUDRATE###############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BAUDRATE {1:s}'.format(os.getcwd(), '115200')))
+print(colored('The serial bitrate is 115200', "green"))
+#MOTHERBOARD############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOTHERBOARD {1:s}'.format(os.getcwd(), os.environ['BOARD'])))
+print(colored('The select board is {0:s}'.format(os.environ['BOARD']), "green"))
+#CUSTOM_MACHINE_NAME####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CUSTOM_MACHINE_NAME {1:s}'.format(os.getcwd(), 'Ender3')))
+print(colored('The machine name is {0:s}'.format('Ender3'), "green"))
 ########################################################################################################################
 
-########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
