@@ -32,8 +32,11 @@ os.chdir('my_marlin')
 # opt_set
 
 subprocess.call(['{0:s}/buildroot/bin/restore_configs'.format(os.getcwd())])
+########################################################################################################################
+# Configuration.h
+########################################################################################################################
 #STRING_CONFIG_H_AUTHOR#################################################################################################
-replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '(none, default config)', 'ccccmagicboy')
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '(none, default config)', '(ccrobot-online, MEEB_3DP)')
 print(colored('The author of the config file is {0:s}'.format('ccccmagicboy'), "green"))
 #SERIAL_PORT############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set SERIAL_PORT {1:s}'.format(os.getcwd(), '-1')))
@@ -48,23 +51,115 @@ print(colored('The serial bitrate is 115200', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOTHERBOARD {1:s}'.format(os.getcwd(), os.environ['BOARD'])))
 print(colored('The select board is {0:s}'.format(os.environ['BOARD']), "green"))
 #CUSTOM_MACHINE_NAME####################################################################################################
-replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '//#define CUSTOM_MACHINE_NAME "3D Printer"', '#define CUSTOM_MACHINE_NAME "Ender3"')
-print(colored('The machine name is {0:s}'.format('Ender3'), "green"))
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '//#define CUSTOM_MACHINE_NAME "3D Printer"', '#define CUSTOM_MACHINE_NAME "Ender-3"')
+print(colored('The machine name is {0:s}'.format('Ender-3'), "green"))
+#MACHINE_UUID###########################################################################################################
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '//#define MACHINE_UUID "00000000-0000-0000-0000-000000000000"', '#define MACHINE_UUID "21d7a8c6-d587-4189-9e5c-414d6990b363"')
+print(colored('The machine uuid is {0:s}'.format('21d7a8c6-d587-4189-9e5c-414d6990b363'), "green"))
+#DEFAULT_NOMINAL_FILAMENT_DIA###########################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_NOMINAL_FILAMENT_DIA {1:s}'.format(os.getcwd(), '1.75')))
+print(colored('The nominal filament dia is {0:s}'.format('1.75'), "green"))
+#TEMP_SENSOR_0##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set TEMP_SENSOR_0 {1:s}'.format(os.getcwd(), '1')))
+print(colored('The temperature sensor 0 is {0:s}'.format('1'), "green"))
+#TEMP_SENSOR_BED########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set TEMP_SENSOR_BED {1:s}'.format(os.getcwd(), '1')))
+print(colored('The temperature bed is {0:s}'.format('1'), "green"))
+#BED_MAXTEMP############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BED_MAXTEMP {1:s}'.format(os.getcwd(), '125')))
+print(colored('The bed max temperature is set to {0:s}'.format('125'), "green"))
+#PIDTEMPBED#############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PIDTEMPBED'.format(os.getcwd())))
+print(colored('The bed pid is enabled', "green"))
+#PREVENT_LENGTHY_EXTRUDE################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PREVENT_LENGTHY_EXTRUDE {1:s}'.format(os.getcwd(), '450')))
+print(colored('The max extrude lengthy is set to {0:s}'.format('450'), "green"))
+#ENDSTOPPULLUPS#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ENDSTOPPULLUPS'.format(os.getcwd())))
+print(colored('The endstop pull-up resistor are enabled', "green"))
+#X_DRIVER_TYPE##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_DRIVER_TYPE {1:s}'.format(os.getcwd(), 'TMC2208')))
+print(colored('The x axis driver is set to {0:s}'.format('TMC2208'), "green"))
+#Y_DRIVER_TYPE##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_DRIVER_TYPE {1:s}'.format(os.getcwd(), 'TMC2208')))
+print(colored('The y axis driver is set to {0:s}'.format('TMC2208'), "green"))
+#Z_DRIVER_TYPE##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_DRIVER_TYPE {1:s}'.format(os.getcwd(), 'TMC2208')))
+print(colored('The z axis driver is set to {0:s}'.format('TMC2208'), "green"))
+#E0_DRIVER_TYPE#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_DRIVER_TYPE {1:s}'.format(os.getcwd(), 'TMC2208')))
+print(colored('The e0 axis driver is set to {0:s}'.format('TMC2208'), "green"))
+#DEFAULT_AXIS_STEPS_PER_UNIT############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_AXIS_STEPS_PER_UNIT {1:s}'.format(os.getcwd(), '{ 80, 80, 400, 97.5 }')))
+print(colored('The default step/mm is set to {0:s}'.format('{ 80, 80, 400, 97.5 }'), "green"))
+#DEFAULT_MAX_FEEDRATE###################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_MAX_FEEDRATE {1:s}'.format(os.getcwd(), '{ 300, 300, 75, 300 }')))
+print(colored('The default max feedrate is set to {0:s} mm/s.'.format('{ 300, 300, 75, 300 }'), "green"))
+#S_CURVE_ACCELERATION###################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable S_CURVE_ACCELERATION'.format(os.getcwd())))
+print(colored('The s-curve acceleration is enabled', "green"))
+#INVERT_X_DIR###########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set INVERT_X_DIR {1:s}'.format(os.getcwd(), 'true')))
+print(colored('The invert x axis dir is set to {0:s}'.format('true'), "green"))
+#INVERT_E0_DIR##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set INVERT_E0_DIR {1:s}'.format(os.getcwd(), 'true')))
+print(colored('The invert e0 axis dir is set to {0:s}'.format('true'), "green"))
+#NO_MOTION_BEFORE_HOMING################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NO_MOTION_BEFORE_HOMING'.format(os.getcwd())))
+print(colored('The no motion before homing is enabled', "green"))
+#UNKNOWN_Z_NO_RAISE#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable UNKNOWN_Z_NO_RAISE'.format(os.getcwd())))
+print(colored('The unknown z no raise is enabled', "green"))
+#Z_HOMING_HEIGHT########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_HOMING_HEIGHT {1:s}'.format(os.getcwd(), '0')))
+print(colored('The z homing height is set to {0:s} mm.'.format('0'), "green"))
+#Z_AFTER_HOMING########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_AFTER_HOMING {1:s}'.format(os.getcwd(), '10')))
+print(colored('The z after homing is set to {0:s} mm.'.format('10'), "green"))
+#X_BED_SIZE########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_BED_SIZE {1:s}'.format(os.getcwd(), '235')))
+print(colored('The x bed size is set to {0:s} mm.'.format('235'), "green"))
+#Y_BED_SIZE########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_BED_SIZE {1:s}'.format(os.getcwd(), '235')))
+print(colored('The y bed size is set ot {0:s} mm.'.format('235'), "green"))
+#Z_MAX_POS########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_MAX_POS {1:s}'.format(os.getcwd(), '240')))
+print(colored('The z max is set to {0:s} mm.'.format('240'), "green"))
+#LEVEL_BED_CORNERS#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable LEVEL_BED_CORNERS'.format(os.getcwd())))
+print(colored('The manunal z bed corners leveling is enabled', "green"))
+#LEVEL_CENTER_TOO#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable LEVEL_CENTER_TOO'.format(os.getcwd())))
+print(colored('The manunal z bed corners leveling center point is enabled', "green"))
+#Z_SAFE_HOMING#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable Z_SAFE_HOMING'.format(os.getcwd())))
+print(colored('The z safe homing is enabled', "green"))
+#NOZZLE_PARK_FEATURE#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NOZZLE_PARK_FEATURE'.format(os.getcwd())))
+print(colored('The nozzle park feature is enabled', "green"))
+#NOZZLE_PARK_POINT########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NOZZLE_PARK_POINT {1:s}'.format(os.getcwd(), '{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }')))
+print(colored('The nozzle park point is set to {0:s}.'.format('{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }'), "green"))
+#INDIVIDUAL_AXIS_HOMING_MENU#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable INDIVIDUAL_AXIS_HOMING_MENU'.format(os.getcwd())))
+print(colored('The lcd individual axis homing menu is enabled', "green"))
+#CR10_STOCKDISPLAY#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CR10_STOCKDISPLAY'.format(os.getcwd())))
+print(colored('The ender-3 stockdisplay is enabled', "green"))
+#NEOPIXEL_LED#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_LED'.format(os.getcwd())))
+print(colored('The neopixel led is enabled', "green"))
+#NEOPIXEL_BRIGHTNESS########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_BRIGHTNESS {1:s}'.format(os.getcwd(), '255')))
+print(colored('The Initial brightness of neopixel led is set to {0:s}(hex).'.format('255'), "green"))
+#NEOPIXEL_STARTUP_TEST#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_STARTUP_TEST'.format(os.getcwd())))
+print(colored('The neopixel led startup test is enabled', "green"))
+########################################################################################################################
+########################################################################################################################
+# Configuration_adv.h
 ########################################################################################################################
 
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
