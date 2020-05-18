@@ -138,7 +138,7 @@ print(colored('The z safe homing is enabled', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NOZZLE_PARK_FEATURE'.format(os.getcwd())))
 print(colored('The nozzle park feature is enabled', "green"))
 #NOZZLE_PARK_POINT########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NOZZLE_PARK_POINT {1:s}'.format(os.getcwd(), '{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }')))
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '{ (X_MIN_POS + 0), (Y_MIN_POS + 0), 40 }', '{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }')
 print(colored('The nozzle park point is set to {0:s}.'.format('{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }'), "green"))
 #INDIVIDUAL_AXIS_HOMING_MENU#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable INDIVIDUAL_AXIS_HOMING_MENU'.format(os.getcwd())))
@@ -149,6 +149,9 @@ print(colored('The ender-3 stockdisplay is enabled', "green"))
 #NEOPIXEL_LED#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_LED'.format(os.getcwd())))
 print(colored('The neopixel led is enabled', "green"))
+#NEOPIXEL_PIN#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable NEOPIXEL_PIN'.format(os.getcwd())))
+print(colored('The neopixel led pin is define in board file, and here it is disabled', "green"))
 #NEOPIXEL_BRIGHTNESS########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_BRIGHTNESS {1:s}'.format(os.getcwd(), '255')))
 print(colored('The Initial brightness of neopixel led is set to {0:s}(hex).'.format('255'), "green"))
