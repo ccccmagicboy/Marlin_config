@@ -48,7 +48,7 @@ print(colored('The serial bitrate is 115200', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOTHERBOARD {1:s}'.format(os.getcwd(), os.environ['BOARD'])))
 print(colored('The select board is {0:s}'.format(os.environ['BOARD']), "green"))
 #CUSTOM_MACHINE_NAME####################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CUSTOM_MACHINE_NAME {1:s}'.format(os.getcwd(), 'Ender3')))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CUSTOM_MACHINE_NAME {1:s}'.format(os.getcwd(), '\"Ender3\"')))
 print(colored('The machine name is {0:s}'.format('Ender3'), "green"))
 ########################################################################################################################
 
