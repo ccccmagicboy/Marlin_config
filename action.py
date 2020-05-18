@@ -90,10 +90,10 @@ print(colored('The z axis driver is set to {0:s}'.format('TMC2208'), "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_DRIVER_TYPE {1:s}'.format(os.getcwd(), 'TMC2208')))
 print(colored('The e0 axis driver is set to {0:s}'.format('TMC2208'), "green"))
 #DEFAULT_AXIS_STEPS_PER_UNIT############################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_AXIS_STEPS_PER_UNIT {1:s}'.format(os.getcwd(), '{ 80, 80, 400, 97.5 }')))
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), 'DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }', 'DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 97.5 }')
 print(colored('The default step/mm is set to {0:s}'.format('{ 80, 80, 400, 97.5 }'), "green"))
 #DEFAULT_MAX_FEEDRATE###################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_MAX_FEEDRATE {1:s}'.format(os.getcwd(), '{ 300, 300, 75, 300 }')))
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), 'DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }', 'DEFAULT_MAX_FEEDRATE          { 300, 300, 75, 300 }')
 print(colored('The default max feedrate is set to {0:s} mm/s.'.format('{ 300, 300, 75, 300 }'), "green"))
 #S_CURVE_ACCELERATION###################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable S_CURVE_ACCELERATION'.format(os.getcwd())))
