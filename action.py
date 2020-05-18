@@ -48,7 +48,7 @@ print(colored('The serial bitrate is 115200', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOTHERBOARD {1:s}'.format(os.getcwd(), os.environ['BOARD'])))
 print(colored('The select board is {0:s}'.format(os.environ['BOARD']), "green"))
 #CUSTOM_MACHINE_NAME####################################################################################################
-replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '//#define CUSTOM_MACHINE_NAME \"3D Printer\"', '//#define CUSTOM_MACHINE_NAME \"Ender3\"')
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '//#define CUSTOM_MACHINE_NAME \"3D Printer\"', '#define CUSTOM_MACHINE_NAME \"Ender3\"')
 print(colored('The machine name is {0:s}'.format('Ender3'), "green"))
 ########################################################################################################################
 
