@@ -25,6 +25,8 @@ send_cmd('chmod +x {0:s}/my_marlin/buildroot/bin/*'.format(os.getcwd()))
 sys.path.append('{0:s}/my_marlin/buildroot/bin'.format(os.getcwd()))
 print(sys.path)
 
+subprocess.call(['{0:s}/buildroot/bin/restore_configs'.format(os.getcwd())])
+
 # cp _Statusscreen.h and _Bootscreen.h
 src = os.path.join('{0:s}/Marlin_v2/_Statusscreen.h'.format(os.getcwd()))
 dst = os.path.join('{0:s}/my_marlin/Marlin'.format(os.getcwd()))
@@ -44,7 +46,6 @@ os.chdir('my_marlin')
 # opt_disable
 # opt_set
 
-subprocess.call(['{0:s}/buildroot/bin/restore_configs'.format(os.getcwd())])
 ########################################################################################################################
 # Configuration.h
 ########################################################################################################################
@@ -93,7 +94,7 @@ print(colored('The bed pid is enabled', "green"))
 #EXTRUDE_MAXLENGTH################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set EXTRUDE_MAXLENGTH {1:s}'.format(os.getcwd(), '450')))
 print(colored('The max extrude lengthy is set to {0:s}'.format('450'), "green"))
-#THERMAL_PROTECTION_CHAMBER################################################################################################
+#THERMAL_PROTECTION_CHAMBER#############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable THERMAL_PROTECTION_CHAMBER'.format(os.getcwd())))
 print(colored('The chamber thermal protection is disabled', "red"))
 #ENDSTOPPULLUPS#########################################################################################################
@@ -135,58 +136,58 @@ print(colored('The unknown z no raise is enabled', "green"))
 #Z_HOMING_HEIGHT########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_HOMING_HEIGHT {1:s}'.format(os.getcwd(), '0')))
 print(colored('The z homing height is set to {0:s} mm.'.format('0'), "green"))
-#Z_AFTER_HOMING########################################################################################################
+#Z_AFTER_HOMING#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_AFTER_HOMING {1:s}'.format(os.getcwd(), '10')))
 print(colored('The z after homing is set to {0:s} mm.'.format('10'), "green"))
-#X_BED_SIZE########################################################################################################
+#X_BED_SIZE#############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_BED_SIZE {1:s}'.format(os.getcwd(), '235')))
 print(colored('The x bed size is set to {0:s} mm.'.format('235'), "green"))
-#Y_BED_SIZE########################################################################################################
+#Y_BED_SIZE#############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_BED_SIZE {1:s}'.format(os.getcwd(), '235')))
 print(colored('The y bed size is set ot {0:s} mm.'.format('235'), "green"))
-#Z_MAX_POS########################################################################################################
+#Z_MAX_POS##############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_MAX_POS {1:s}'.format(os.getcwd(), '240')))
 print(colored('The z max is set to {0:s} mm.'.format('240'), "green"))
-#LEVEL_BED_CORNERS#####################################################################################################
+#LEVEL_BED_CORNERS######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable LEVEL_BED_CORNERS'.format(os.getcwd())))
 print(colored('The manunal z bed corners leveling is enabled', "green"))
-#LEVEL_CENTER_TOO#####################################################################################################
+#LEVEL_CENTER_TOO#######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable LEVEL_CENTER_TOO'.format(os.getcwd())))
 print(colored('The manunal z bed corners leveling center point is enabled', "green"))
-#Z_SAFE_HOMING#####################################################################################################
+#Z_SAFE_HOMING##########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable Z_SAFE_HOMING'.format(os.getcwd())))
 print(colored('The z safe homing is enabled', "green"))
-#NOZZLE_PARK_FEATURE#####################################################################################################
+#NOZZLE_PARK_FEATURE####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NOZZLE_PARK_FEATURE'.format(os.getcwd())))
 print(colored('The nozzle park feature is enabled', "green"))
-#NOZZLE_PARK_POINT########################################################################################################
+#NOZZLE_PARK_POINT######################################################################################################
 replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '{ (X_MIN_POS + 0), (Y_MIN_POS + 0), 40 }', '{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }')
 print(colored('The nozzle park point is set to {0:s}.'.format('{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }'), "green"))
-#INDIVIDUAL_AXIS_HOMING_MENU#####################################################################################################
+#INDIVIDUAL_AXIS_HOMING_MENU############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable INDIVIDUAL_AXIS_HOMING_MENU'.format(os.getcwd())))
 print(colored('The lcd individual axis homing menu is enabled', "green"))
-#CR10_STOCKDISPLAY#####################################################################################################
+#CR10_STOCKDISPLAY######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CR10_STOCKDISPLAY'.format(os.getcwd())))
 print(colored('The ender-3 stockdisplay is enabled', "green"))
-#NEOPIXEL_LED#####################################################################################################
+#NEOPIXEL_LED###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_LED'.format(os.getcwd())))
 print(colored('The neopixel led is enabled', "green"))
-#NEOPIXEL_PIN#####################################################################################################
+#NEOPIXEL_PIN###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable NEOPIXEL_PIN'.format(os.getcwd())))
 print(colored('The neopixel led pin is define in board file, and here it is disabled', "red"))
-#NEOPIXEL_BRIGHTNESS########################################################################################################
+#NEOPIXEL_BRIGHTNESS####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_BRIGHTNESS {1:s}'.format(os.getcwd(), '30')))
 print(colored('The Initial brightness of neopixel led is set to {0:s}.'.format('30'), "green"))
-#NEOPIXEL_TYPE########################################################################################################
+#NEOPIXEL_TYPE##########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_TYPE {1:s}'.format(os.getcwd(), 'NEO_GRB')))
 print(colored('The type of neopixel led is set to {0:s}.'.format('NEO_GRB'), "green"))
 #NEOPIXEL_PIXELS########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_PIXELS {1:s}'.format(os.getcwd(), '1')))
 print(colored('The number of neopixel led is set to {0:s}.'.format('1'), "green"))
-#NEOPIXEL_IS_SEQUENTIAL################################################################################################
+#NEOPIXEL_IS_SEQUENTIAL#################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable NEOPIXEL_IS_SEQUENTIAL'.format(os.getcwd())))
 print(colored('The neopixel sequential is disabled', "red"))
-#NEOPIXEL_STARTUP_TEST#####################################################################################################
+#NEOPIXEL_STARTUP_TEST##################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_STARTUP_TEST'.format(os.getcwd())))
 print(colored('The neopixel led startup test is enabled', "green"))
 ########################################################################################################################
