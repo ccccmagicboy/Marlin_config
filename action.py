@@ -4,7 +4,7 @@ import subprocess
 import shlex
 from termcolor import colored
 import fileinput
-from shutil import copyfile
+from shutil import copy
 
 def replaceAll(file,searchExp,replaceExp):
     for line in fileinput.input(file, inplace=1):
