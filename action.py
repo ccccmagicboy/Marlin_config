@@ -25,7 +25,7 @@ send_cmd('chmod +x {0:s}/my_marlin/buildroot/bin/*'.format(os.getcwd()))
 sys.path.append('{0:s}/my_marlin/buildroot/bin'.format(os.getcwd()))
 print(sys.path)
 
-subprocess.call(['{0:s}/buildroot/bin/restore_configs'.format(os.getcwd())])
+subprocess.call(['{0:s}/my_marlin/buildroot/bin/restore_configs'.format(os.getcwd())])
 
 # cp _Statusscreen.h and _Bootscreen.h
 src = os.path.join('{0:s}/Marlin_v2/_Statusscreen.h'.format(os.getcwd()))
