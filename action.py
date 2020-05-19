@@ -27,11 +27,11 @@ print(sys.path)
 
 # cp _Statusscreen.h and _Bootscreen.h
 src = os.path.join('{0:s}/Marlin_v2/_Statusscreen.h'.format(os.getcwd()))
-dst = os.path.join('{0:s}/my_marlin/Marlin/src/_Statusscreen.h'.format(os.getcwd()))
-copyfile(src, dst)
+dst = os.path.join('{0:s}/my_marlin/Marlin'.format(os.getcwd()))
+copy(src, dst)
 src = os.path.join('{0:s}/Marlin_v2/_Bootscreen.h'.format(os.getcwd()))
-dst = os.path.join('{0:s}/my_marlin/Marlin/src/_Bootscreen.h'.format(os.getcwd()))
-copyfile(src, dst)
+dst = os.path.join('{0:s}/my_marlin/Marlin'.format(os.getcwd()))
+copy(src, dst)
 
 os.chdir('my_marlin')
 
