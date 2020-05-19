@@ -194,6 +194,87 @@ print(colored('The neopixel led startup test is enabled', "green"))
 ########################################################################################################################
 # Configuration_adv.h
 ########################################################################################################################
+#QUICK_HOME#############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable QUICK_HOME'.format(os.getcwd())))
+print(colored('If G28 contains XY do a diagonal move first is enabled', "green"))
+#SLOWDOWN_DIVISOR#######################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set SLOWDOWN_DIVISOR {1:s}'.format(os.getcwd(), '8')))
+print(colored('Increase the slowdown divisor for larger buffer sizes, set to {0:s}.'.format('8'), "green"))
+#ADAPTIVE_STEP_SMOOTHING################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ADAPTIVE_STEP_SMOOTHING'.format(os.getcwd())))
+print(colored('Adaptive Step Smoothing increases the resolution of multi-axis moves, so is enabled', "green"))
+#STATUS_MESSAGE_SCROLLING###############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable STATUS_MESSAGE_SCROLLING'.format(os.getcwd())))
+print(colored('Scroll a longer status message into view, so is enabled', "green"))
+#PRINT_PROGRESS_SHOW_DECIMALS###########################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PRINT_PROGRESS_SHOW_DECIMALS'.format(os.getcwd())))
+print(colored('Show progress with decimal digits, so is enabled', "green"))
+#SHOW_REMAINING_TIME####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable SHOW_REMAINING_TIME'.format(os.getcwd())))
+print(colored('Display estimated time to completion, so is enabled', "green"))
+#USE_M73_REMAINING_TIME#################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable USE_M73_REMAINING_TIME'.format(os.getcwd())))
+print(colored('Use remaining time from M73 command instead of estimation, so is enabled', "green"))
+#ROTATE_PROGRESS_DISPLAY################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ROTATE_PROGRESS_DISPLAY'.format(os.getcwd())))
+print(colored('Display (P)rogress, (E)lapsed, and (R)emaining time, so is enabled', "green"))
+#STATUS_FAN_FRAMES######################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set STATUS_FAN_FRAMES {1:s}'.format(os.getcwd(), '4')))
+print(colored('Number of fan animation frames is set to {0:s}.'.format('4'), "green"))
+#STATUS_HEAT_PERCENT####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable STATUS_HEAT_PERCENT'.format(os.getcwd())))
+print(colored('Show heating in a progress bar, so is enabled', "green"))
+#BOOT_MARLIN_LOGO_ANIMATED##############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BOOT_MARLIN_LOGO_ANIMATED'.format(os.getcwd())))
+print(colored('Animated Marlin logo, so is enabled', "green"))
+#MARLIN_GAMES###########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable MARLIN_BRICKOUT MARLIN_INVADERS MARLIN_SNAKE GAMES_EASTER_EGG'.format(os.getcwd())))
+print(colored('Add games great!!! so is enabled', "green"))
+#LCD_INFO_MENU##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable LCD_INFO_MENU'.format(os.getcwd())))
+print(colored('Include a page of printer information in the LCD Main Menu, so is enabled', "green"))
+#TURBO_BACK_MENU_ITEM###################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable TURBO_BACK_MENU_ITEM'.format(os.getcwd())))
+print(colored('BACK menu items keep the highlight at the top, so is enabled', "green"))
+#LED_CONTROL_MENU#######################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable LED_CONTROL_MENU'.format(os.getcwd())))
+print(colored('Add LED Control to the LCD menu, so is enabled', "green"))
+#MONITOR_DRIVER_STATUS##################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable MONITOR_DRIVER_STATUS'.format(os.getcwd())))
+print(colored('Monitor Trinamic drivers, so is enabled', "green"))
+#TMC_DEBUG##############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable TMC_DEBUG'.format(os.getcwd())))
+print(colored('Enable M122 debugging command for TMC stepper drivers, so is enabled', "green"))
+#CANCEL_OBJECTS#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CANCEL_OBJECTS'.format(os.getcwd())))
+print(colored('Implement M486 to allow Marlin to skip objects, so is enabled', "green"))
+#BUFSIZE################################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BUFSIZE {1:s}'.format(os.getcwd(), '32')))
+print(colored('The ASCII buffer for serial input is set to {0:s}.'.format('32'), "green"))
+#TX_BUFFER_SIZE#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set TX_BUFFER_SIZE {1:s}'.format(os.getcwd(), '32')))
+print(colored('Transmission to Host Buffer Size is set to {0:s}.'.format('32'), "green"))
+#RX_BUFFER_SIZE#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set RX_BUFFER_SIZE {1:s}'.format(os.getcwd(), '32')))
+print(colored('Transmission to Host Buffer Size is set to {0:s}.'.format('32'), "green"))
+#X_CURRENT##############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_CURRENT {1:s}'.format(os.getcwd(), '580')))
+print(colored('(mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('580'), "green"))
+#Y_CURRENT##############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_CURRENT {1:s}'.format(os.getcwd(), '580')))
+print(colored('(mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('580'), "green"))
+#Z_CURRENT##############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_CURRENT {1:s}'.format(os.getcwd(), '580')))
+print(colored('(mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('580'), "green"))
+#E0_CURRENT#############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_CURRENT {1:s}'.format(os.getcwd(), '650')))
+print(colored('(mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('650'), "green"))
+#STEALTHCHOP_E#################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable STEALTHCHOP_E'.format(os.getcwd())))
+print(colored('When disabled, Marlin will use spreadCycle stepping mode, so e0 is disabled', "red"))
+#CHOPPER_TIMING#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CHOPPER_TIMING {1:s}'.format(os.getcwd(), 'CHOPPER_DEFAULT_24V')))
+print(colored('Optimize spreadCycle chopper parameters by using predefined parameter sets, so is set to {0:s}.'.format('CHOPPER_DEFAULT_24V'), "green"))
 
 ########################################################################################################################
 ########################################################################################################################
