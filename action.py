@@ -161,8 +161,8 @@ print(colored('The z safe homing is enabled', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NOZZLE_PARK_FEATURE'.format(os.getcwd())))
 print(colored('The nozzle park feature is enabled', "green"))
 #NOZZLE_PARK_POINT######################################################################################################
-replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '{ (X_MIN_POS + 0), (Y_MIN_POS + 0), 40 }', '{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }')
-print(colored('The nozzle park point is set to {0:s}.'.format('{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }'), "green"))
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '{ (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }', '{ (X_MIN_POS + 0), (Y_MIN_POS + 0), 40 }')
+print(colored('The nozzle park point is set to {0:s}.'.format('{ (X_MIN_POS + 0), (Y_MIN_POS + 0), 40 }'), "green"))
 #INDIVIDUAL_AXIS_HOMING_MENU############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable INDIVIDUAL_AXIS_HOMING_MENU'.format(os.getcwd())))
 print(colored('The lcd individual axis homing menu is enabled', "green"))
@@ -182,8 +182,8 @@ print(colored('The Initial brightness of neopixel led is set to {0:s}.'.format('
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_TYPE {1:s}'.format(os.getcwd(), 'NEO_GRB')))
 print(colored('The type of neopixel led is set to {0:s}.'.format('NEO_GRB'), "green"))
 #NEOPIXEL_PIXELS########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_PIXELS {1:s}'.format(os.getcwd(), '1')))
-print(colored('The number of neopixel led is set to {0:s}.'.format('1'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_PIXELS {1:s}'.format(os.getcwd(), '9')))
+print(colored('The number of neopixel led is set to {0:s}.'.format('9'), "green"))
 #NEOPIXEL_IS_SEQUENTIAL#################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable NEOPIXEL_IS_SEQUENTIAL'.format(os.getcwd())))
 print(colored('The neopixel sequential is disabled', "red"))
