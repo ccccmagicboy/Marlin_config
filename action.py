@@ -4,6 +4,7 @@ import subprocess
 import shlex
 from termcolor import colored
 import fileinput
+from shutil import copyfile
 
 def replaceAll(file,searchExp,replaceExp):
     for line in fileinput.input(file, inplace=1):
@@ -23,6 +24,15 @@ print(os.listdir(os.getcwd()))
 send_cmd('chmod +x {0:s}/my_marlin/buildroot/bin/*'.format(os.getcwd()))
 sys.path.append('{0:s}/my_marlin/buildroot/bin'.format(os.getcwd()))
 print(sys.path)
+
+# cp _Statusscreen.h and _Bootscreen.h
+src = sys.path.append('{0:s}/Marlin_v2/_Statusscreen.h'.format(os.getcwd()))
+dst = sys.path.append('{0:s}/my_marlin/Marlin/_Statusscreen.h'.format(os.getcwd()))
+copyfile(src, dst)
+src = sys.path.append('{0:s}/Marlin_v2/_Bootscreen.h'.format(os.getcwd()))
+dst = sys.path.append('{0:s}/my_marlin/Marlin/_Bootscreen.h'.format(os.getcwd()))
+copyfile(src, dst)
+
 os.chdir('my_marlin')
 
 # replaceAll(mk_path, "#webrepl.start()","import machine;".format(str))
@@ -38,6 +48,12 @@ subprocess.call(['{0:s}/buildroot/bin/restore_configs'.format(os.getcwd())])
 #STRING_CONFIG_H_AUTHOR#################################################################################################
 replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '(none, default config)', '(ccrobot-online, MEEB_3DP)')
 print(colored('The author of the config file is {0:s}'.format('ccccmagicboy'), "green"))
+#SHOW_CUSTOM_BOOTSCREEN#################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable SHOW_CUSTOM_BOOTSCREEN'.format(os.getcwd())))
+print(colored('The custom bootscreen is enabled', "green"))
+#CUSTOM_STATUS_SCREEN_IMAGE#############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CUSTOM_STATUS_SCREEN_IMAGE'.format(os.getcwd())))
+print(colored('The custom status screen is enabled', "green"))
 #SERIAL_PORT############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set SERIAL_PORT {1:s}'.format(os.getcwd(), '-1')))
 print(colored('The main serial is USB serial.', "green"))
