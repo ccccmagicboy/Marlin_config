@@ -188,8 +188,8 @@ print(colored('The ender-3 stockdisplay is enabled', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable SPEAKER'.format(os.getcwd())))
 print(colored('The speaker is enabled', "green"))
 #LCD_LANGUAGE###########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set LCD_LANGUAGE {1:s}'.format(os.getcwd(), 'zh_CN')))
-print(colored('The language of LCD is set to {0:s}.'.format('zh_CN'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set LCD_LANGUAGE {1:s}'.format(os.getcwd(), 'en')))
+print(colored('The language of LCD is set to {0:s}.'.format('en'), "green"))
 #NEOPIXEL_LED###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_LED'.format(os.getcwd())))
 print(colored('The neopixel led is enabled', "green"))
@@ -232,7 +232,7 @@ print(colored('Increase the slowdown divisor for larger buffer sizes, set to {0:
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ADAPTIVE_STEP_SMOOTHING'.format(os.getcwd())))
 print(colored('Adaptive Step Smoothing increases the resolution of multi-axis moves, so is enabled', "green"))
 #STATUS_MESSAGE_SCROLLING###############################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable STATUS_MESSAGE_SCROLLING'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable STATUS_MESSAGE_SCROLLING LCD_DECIMAL_SMALL_XY LCD_TIMEOUT_TO_STATUS LCD_SET_PROGRESS_MANUALLY LCD_SHOW_E_TOTAL'.format(os.getcwd())))
 print(colored('Scroll a longer status message into view, so is enabled', "green"))
 #PRINT_PROGRESS_SHOW_DECIMALS###########################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PRINT_PROGRESS_SHOW_DECIMALS'.format(os.getcwd())))
@@ -303,6 +303,71 @@ print(colored('When disabled, Marlin will use spreadCycle stepping mode, so e0 i
 #CHOPPER_TIMING#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CHOPPER_TIMING {1:s}'.format(os.getcwd(), 'CHOPPER_DEFAULT_24V')))
 print(colored('Optimize spreadCycle chopper parameters by using predefined parameter sets, so is set to {0:s}.'.format('CHOPPER_DEFAULT_24V'), "green"))
+#USE_CONTROLLER_FAN#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable USE_CONTROLLER_FAN'.format(os.getcwd())))
+print(colored('To cool down the stepper drivers and MOSFETs, so is enabled.', "green"))
+#CONTROLLER_FAN_EDITABLE################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CONTROLLER_FAN_EDITABLE'.format(os.getcwd())))
+print(colored('Add controller fan menu, so is enabled.', "green"))
+#CONTROLLER_FAN_PIN#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CONTROLLER_FAN_PIN {1:s}'.format(os.getcwd(), 'FAN1_PIN')))
+print(colored('controller fan pin is set to {0:s}.'.format('FAN1_PIN'), "green"))
+#FAN_KICKSTART_TIME#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FAN_KICKSTART_TIME {1:s}'.format(os.getcwd(), '200')))
+print(colored('This gets the fan spinning reliably, so set to {0:s} ms.'.format('200'), "green"))
+#FAN_KICKSTART_TIME#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FAN_KICKSTART_TIME {1:s}'.format(os.getcwd(), '200')))
+print(colored('This gets the fan spinning reliably, so set to {0:s} ms.'.format('200'), "green"))
+#E0_AUTO_FAN_PIN########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_AUTO_FAN_PIN {1:s}'.format(os.getcwd(), 'FAN_PIN')))
+print(colored('e0 fan pin is set to {0:s}.'.format('FAN_PIN'), "green"))
+#CASE_LIGHT_ENABLE######################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CASE_LIGHT_ENABLE CASE_LIGHT_MENU CASE_LIGHT_USE_NEOPIXEL'.format(os.getcwd())))
+print(colored('M355 Case Light on-off / brightness, so is enabled.', "green"))
+#BEEP_ON_FEEDRATE_CHANGE################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BEEP_ON_FEEDRATE_CHANGE'.format(os.getcwd())))
+print(colored('Add beep when feedrate changed, so is enabled.', "green"))
+#USE_BIG_EDIT_FONT######################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable USE_BIG_EDIT_FONT'.format(os.getcwd())))
+print(colored('A bigger font is available for edit items, so is enabled.', "green"))
+#USE_SMALL_INFOFONT#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable USE_SMALL_INFOFONT'.format(os.getcwd())))
+print(colored('A smaller font may be used on the Info Screen, so is enabled.', "green"))
+#OVERLAY_GFX_REVERSE####################################################################################################
+# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable OVERLAY_GFX_REVERSE'.format(os.getcwd())))
+# print(colored('A smaller font may be used on the Info Screen, so is enabled.', "green"))
+#BABYSTEPPING###########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_ALWAYS_AVAILABLE BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE BABYSTEP_ZPROBE_OFFSET BABYSTEP_ZPROBE_GFX_OVERLAY'.format(os.getcwd())))
+print(colored('We need babystepping, so is enabled.', "green"))
+#BEZIER_CURVE_SUPPORT###################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BEZIER_CURVE_SUPPORT'.format(os.getcwd())))
+print(colored('Support for G5 with XYZE destination and IJPQ offsets, so is enabled.', "green"))
+#DIRECT_STEPPING########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable DIRECT_STEPPING'.format(os.getcwd())))
+print(colored('It reduces motion calculations, so is enabled.', "green"))
+#BAUD_RATE_GCODE########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BAUD_RATE_GCODE'.format(os.getcwd())))
+print(colored('Add M575 G-code to change the baud rate, so is enabled.', "green"))
+#ADVANCED_PAUSE_FEATURE#################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ADVANCED_PAUSE_FEATURE'.format(os.getcwd())))
+print(colored('Advanced Pause is enabled.', "green"))
+#PHOTO_GCODE############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PHOTO_GCODE'.format(os.getcwd())))
+print(colored('Add the M240 G-code to take a photo, so is enabled.', "green"))
+#M115_GEOMETRY_REPORT###################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable M115_GEOMETRY_REPORT'.format(os.getcwd())))
+print(colored('Include capabilities in M115 output, so is enabled.', "green"))
+#EXPECTED_PRINTER_CHECK#################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable EXPECTED_PRINTER_CHECK'.format(os.getcwd())))
+print(colored('M16 with a non-matching string causes the printer to halt, so is enabled.', "green"))
+#M100_FREE_MEMORY_WATCHER###############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable M100_FREE_MEMORY_WATCHER'.format(os.getcwd())))
+print(colored('M100 Free Memory Watcher to debug memory usage, so is enabled.', "green"))
+#PINS_DEBUGGING#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PINS_DEBUGGING'.format(os.getcwd())))
+print(colored('M43 - display pin status, toggle pins, watch pins, watch endstops & toggle LED, test servo probe, so is enabled.', "green"))
+
+
 
 ########################################################################################################################
 ########################################################################################################################
