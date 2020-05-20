@@ -354,9 +354,6 @@ print(colored('Include capabilities in M115 output, so is enabled.', "green"))
 #EXPECTED_PRINTER_CHECK#################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable EXPECTED_PRINTER_CHECK'.format(os.getcwd())))
 print(colored('M16 with a non-matching string causes the printer to halt, so is enabled.', "green"))
-#M100_FREE_MEMORY_WATCHER###############################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable M100_FREE_MEMORY_WATCHER'.format(os.getcwd())))
-print(colored('M100 Free Memory Watcher to debug memory usage, so is enabled.', "green"))
 #PINS_DEBUGGING#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PINS_DEBUGGING'.format(os.getcwd())))
 print(colored('M43 - display pin status, toggle pins, watch pins, watch endstops & toggle LED, test servo probe, so is enabled.', "green"))
