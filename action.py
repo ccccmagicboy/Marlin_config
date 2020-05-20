@@ -343,8 +343,17 @@ print(colored('It reduces motion calculations, so is enabled.', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BAUD_RATE_GCODE'.format(os.getcwd())))
 print(colored('Add M575 G-code to change the baud rate, so is enabled.', "green"))
 #ADVANCED_PAUSE_FEATURE#################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ADVANCED_PAUSE_FEATURE'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ADVANCED_PAUSE_FEATURE ADVANCED_PAUSE_CONTINUOUS_PURGE ADVANCED_PAUSE_FANS_PAUSE HOME_BEFORE_FILAMENT_CHANGE'.format(os.getcwd())))
 print(colored('Advanced Pause is enabled.', "green"))
+#FILAMENT_CHANGE_UNLOAD_FEEDRATE########################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_UNLOAD_FEEDRATE {1:s}'.format(os.getcwd(), '30')))
+print(colored('Unload filament feedrate is set to {0:s}.'.format('30'), "green"))
+#FILAMENT_CHANGE_UNLOAD_LENGTH########################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_UNLOAD_LENGTH {1:s}'.format(os.getcwd(), '450')))
+print(colored('The length of filament for a complete unload is set to {0:s}.'.format('450'), "green"))
+#FILAMENT_CHANGE_FAST_LOAD_LENGTH########################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_FAST_LOAD_LENGTH {1:s}'.format(os.getcwd(), '200')))
+print(colored('Load length of filament from extruder gear to nozzle is set to {0:s}.'.format('200'), "green"))
 #PHOTO_GCODE############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PHOTO_GCODE'.format(os.getcwd())))
 print(colored('Add the M240 G-code to take a photo, so is enabled.', "green"))
