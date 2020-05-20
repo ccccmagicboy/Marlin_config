@@ -179,8 +179,8 @@ print(colored('The nozzle park point is set to {0:s}.'.format('{ (X_MIN_POS + 0)
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable INDIVIDUAL_AXIS_HOMING_MENU'.format(os.getcwd())))
 print(colored('The lcd individual axis homing menu is enabled', "green"))
 #PRINTCOUNTER###########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PRINTCOUNTER'.format(os.getcwd())))
-print(colored('The print counter is enabled', "green"))
+# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PRINTCOUNTER'.format(os.getcwd())))
+# print(colored('The print counter is enabled', "green"))
 #CR10_STOCKDISPLAY######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CR10_STOCKDISPLAY'.format(os.getcwd())))
 print(colored('The ender-3 stockdisplay is enabled', "green"))
@@ -284,19 +284,19 @@ subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set TX_BUFFER_SIZE {1:s}'.f
 print(colored('Transmission to Host Buffer Size is set to {0:s}.'.format('32'), "green"))
 #RX_BUFFER_SIZE#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set RX_BUFFER_SIZE {1:s}'.format(os.getcwd(), '32')))
-print(colored('Transmission to Host Buffer Size is set to {0:s}.'.format('32'), "green"))
+print(colored('RX Buffer Size is set to {0:s}.'.format('32'), "green"))
 #X_CURRENT##############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_CURRENT {1:s}'.format(os.getcwd(), '580')))
-print(colored('(mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('580'), "green"))
+print(colored('X (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('580'), "green"))
 #Y_CURRENT##############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_CURRENT {1:s}'.format(os.getcwd(), '580')))
-print(colored('(mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('580'), "green"))
+print(colored('Y (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('580'), "green"))
 #Z_CURRENT##############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_CURRENT {1:s}'.format(os.getcwd(), '580')))
-print(colored('(mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('580'), "green"))
+print(colored('Z (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('580'), "green"))
 #E0_CURRENT#############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_CURRENT {1:s}'.format(os.getcwd(), '650')))
-print(colored('(mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('650'), "green"))
+print(colored('E0 (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('650'), "green"))
 #STEALTHCHOP_E#################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable STEALTHCHOP_E'.format(os.getcwd())))
 print(colored('When disabled, Marlin will use spreadCycle stepping mode, so e0 is disabled', "red"))
@@ -315,15 +315,9 @@ print(colored('controller fan pin is set to {0:s}.'.format('FAN1_PIN'), "green")
 #FAN_KICKSTART_TIME#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FAN_KICKSTART_TIME {1:s}'.format(os.getcwd(), '200')))
 print(colored('This gets the fan spinning reliably, so set to {0:s} ms.'.format('200'), "green"))
-#FAN_KICKSTART_TIME#####################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FAN_KICKSTART_TIME {1:s}'.format(os.getcwd(), '200')))
-print(colored('This gets the fan spinning reliably, so set to {0:s} ms.'.format('200'), "green"))
 #E0_AUTO_FAN_PIN########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_AUTO_FAN_PIN {1:s}'.format(os.getcwd(), 'FAN_PIN')))
-print(colored('e0 fan pin is set to {0:s}.'.format('FAN_PIN'), "green"))
-#CASE_LIGHT_ENABLE######################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CASE_LIGHT_ENABLE CASE_LIGHT_MENU CASE_LIGHT_USE_NEOPIXEL'.format(os.getcwd())))
-print(colored('M355 Case Light on-off / brightness, so is enabled.', "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_AUTO_FAN_PIN {1:s}'.format(os.getcwd(), 'FAN2_PIN')))
+print(colored('e0 fan pin is set to {0:s}.'.format('FAN2_PIN'), "green"))
 #BEEP_ON_FEEDRATE_CHANGE################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BEEP_ON_FEEDRATE_CHANGE'.format(os.getcwd())))
 print(colored('Add beep when feedrate changed, so is enabled.', "green"))
@@ -337,7 +331,7 @@ print(colored('A smaller font may be used on the Info Screen, so is enabled.', "
 # subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable OVERLAY_GFX_REVERSE'.format(os.getcwd())))
 # print(colored('A smaller font may be used on the Info Screen, so is enabled.', "green"))
 #BABYSTEPPING###########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_ALWAYS_AVAILABLE BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE BABYSTEP_ZPROBE_OFFSET BABYSTEP_ZPROBE_GFX_OVERLAY'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_ALWAYS_AVAILABLE BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE'.format(os.getcwd())))
 print(colored('We need babystepping, so is enabled.', "green"))
 #BEZIER_CURVE_SUPPORT###################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BEZIER_CURVE_SUPPORT'.format(os.getcwd())))
@@ -366,6 +360,11 @@ print(colored('M100 Free Memory Watcher to debug memory usage, so is enabled.', 
 #PINS_DEBUGGING#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PINS_DEBUGGING'.format(os.getcwd())))
 print(colored('M43 - display pin status, toggle pins, watch pins, watch endstops & toggle LED, test servo probe, so is enabled.', "green"))
+#PHOTO_SWITCH_MS#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PHOTO_SWITCH_MS {1:s}'.format(os.getcwd(), '50')))
+print(colored('Duration to hold the switch or keep CHDK_PIN high, so set to {0:s} ms.'.format('50'), "green"))
+
+
 
 
 
