@@ -88,10 +88,16 @@ print(colored('The temperature bed is {0:s}'.format('1'), "green"))
 #BED_MAXTEMP############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BED_MAXTEMP {1:s}'.format(os.getcwd(), '125')))
 print(colored('The bed max temperature is set to {0:s}'.format('125'), "green"))
+#PID_EDIT_MENU##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PID_EDIT_MENU'.format(os.getcwd())))
+print(colored('The pid menu is enabled', "green"))
+#PID_AUTOTUNE_MENU######################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PID_AUTOTUNE_MENU'.format(os.getcwd())))
+print(colored('The pid autotune menu is enabled', "green"))
 #PIDTEMPBED#############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PIDTEMPBED'.format(os.getcwd())))
 print(colored('The bed pid is enabled', "green"))
-#EXTRUDE_MAXLENGTH################################################################################################
+#EXTRUDE_MAXLENGTH######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set EXTRUDE_MAXLENGTH {1:s}'.format(os.getcwd(), '450')))
 print(colored('The max extrude lengthy is set to {0:s}'.format('450'), "green"))
 #THERMAL_PROTECTION_CHAMBER#############################################################################################
@@ -99,7 +105,13 @@ subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable THERMAL_PROTECTION_
 print(colored('The chamber thermal protection is disabled', "red"))
 #ENDSTOPPULLUPS#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ENDSTOPPULLUPS'.format(os.getcwd())))
-print(colored('The endstop pull-up resistor are enabled', "green"))
+print(colored('The endstop pull-up resistors are enabled', "green"))
+#ENDSTOP_INTERRUPTS_FEATURE#############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ENDSTOP_INTERRUPTS_FEATURE'.format(os.getcwd())))
+print(colored('The endstop interrupt feature is enabled', "green"))
+#SOFT_ENDSTOPS_MENU_ITEM################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable SOFT_ENDSTOPS_MENU_ITEM'.format(os.getcwd())))
+print(colored('The soft endstop menu is enabled', "green"))
 #X_DRIVER_TYPE##########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_DRIVER_TYPE {1:s}'.format(os.getcwd(), 'TMC2208')))
 print(colored('The x axis driver is set to {0:s}'.format('TMC2208'), "green"))
@@ -166,9 +178,18 @@ print(colored('The nozzle park point is set to {0:s}.'.format('{ (X_MIN_POS + 0)
 #INDIVIDUAL_AXIS_HOMING_MENU############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable INDIVIDUAL_AXIS_HOMING_MENU'.format(os.getcwd())))
 print(colored('The lcd individual axis homing menu is enabled', "green"))
+#PRINTCOUNTER###########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PRINTCOUNTER'.format(os.getcwd())))
+print(colored('The print counter is enabled', "green"))
 #CR10_STOCKDISPLAY######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CR10_STOCKDISPLAY'.format(os.getcwd())))
 print(colored('The ender-3 stockdisplay is enabled', "green"))
+#SPEAKER################################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable SPEAKER'.format(os.getcwd())))
+print(colored('The speaker is enabled', "green"))
+#LCD_LANGUAGE###########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set LCD_LANGUAGE {1:s}'.format(os.getcwd(), 'zh_CN')))
+print(colored('The language of LCD is set to {0:s}.'.format('zh_CN'), "green"))
 #NEOPIXEL_LED###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_LED'.format(os.getcwd())))
 print(colored('The neopixel led is enabled', "green"))
@@ -176,8 +197,8 @@ print(colored('The neopixel led is enabled', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable NEOPIXEL_PIN'.format(os.getcwd())))
 print(colored('The neopixel led pin is define in board file, and here it is disabled', "red"))
 #NEOPIXEL_BRIGHTNESS####################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_BRIGHTNESS {1:s}'.format(os.getcwd(), '30')))
-print(colored('The Initial brightness of neopixel led is set to {0:s}.'.format('30'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_BRIGHTNESS {1:s}'.format(os.getcwd(), '88')))
+print(colored('The Initial brightness of neopixel led is set to {0:s}.'.format('88'), "green"))
 #NEOPIXEL_TYPE##########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_TYPE {1:s}'.format(os.getcwd(), 'NEO_GRB')))
 print(colored('The type of neopixel led is set to {0:s}.'.format('NEO_GRB'), "green"))
@@ -192,7 +213,14 @@ subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_STARTUP_TES
 print(colored('The neopixel led startup test is enabled', "green"))
 ########################################################################################################################
 ########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
 # Configuration_adv.h
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+########################################################################################################################
 ########################################################################################################################
 #QUICK_HOME#############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable QUICK_HOME'.format(os.getcwd())))
