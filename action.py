@@ -255,8 +255,11 @@ print(colored('Show heating in a progress bar, so is enabled', "green"))
 #BOOT_MARLIN_LOGO_ANIMATED##############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BOOT_MARLIN_LOGO_ANIMATED'.format(os.getcwd())))
 print(colored('Animated Marlin logo, so is enabled', "green"))
+#BOOTSCREEN_TIMEOUT#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BOOTSCREEN_TIMEOUT {1:s}'.format(os.getcwd(), '500')))
+print(colored('Total Duration to display the boot screen is set to {0:s}ms.'.format('500'), "green"))
 #MARLIN_GAMES###########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable MARLIN_BRICKOUT MARLIN_INVADERS MARLIN_SNAKE GAMES_EASTER_EGG'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable MARLIN_BRICKOUT MARLIN_INVADERS MARLIN_SNAKE'.format(os.getcwd())))
 print(colored('Add games great!!! so is enabled', "green"))
 #LCD_INFO_MENU##########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable LCD_INFO_MENU'.format(os.getcwd())))
@@ -325,11 +328,8 @@ print(colored('Add beep when feedrate changed, so is enabled.', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable USE_BIG_EDIT_FONT'.format(os.getcwd())))
 print(colored('A bigger font is available for edit items, so is enabled.', "green"))
 #USE_SMALL_INFOFONT#####################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable USE_SMALL_INFOFONT'.format(os.getcwd())))
-print(colored('A smaller font may be used on the Info Screen, so is enabled.', "green"))
-#OVERLAY_GFX_REVERSE####################################################################################################
-# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable OVERLAY_GFX_REVERSE'.format(os.getcwd())))
-# print(colored('A smaller font may be used on the Info Screen, so is enabled.', "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable USE_SMALL_INFOFONT'.format(os.getcwd())))
+print(colored('A smaller font may be used on the Info Screen, so is disabled.', "red"))
 #BABYSTEPPING###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE'.format(os.getcwd())))
 print(colored('We need babystepping, so is enabled.', "green"))
@@ -351,7 +351,7 @@ print(colored('Unload filament feedrate is set to {0:s}.'.format('30'), "green")
 #FILAMENT_CHANGE_UNLOAD_LENGTH########################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_UNLOAD_LENGTH {1:s}'.format(os.getcwd(), '450')))
 print(colored('The length of filament for a complete unload is set to {0:s}.'.format('450'), "green"))
-#FILAMENT_CHANGE_FAST_LOAD_LENGTH########################################################################################
+#FILAMENT_CHANGE_FAST_LOAD_LENGTH#######################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_FAST_LOAD_LENGTH {1:s}'.format(os.getcwd(), '200')))
 print(colored('Load length of filament from extruder gear to nozzle is set to {0:s}.'.format('200'), "green"))
 #PHOTO_GCODE############################################################################################################
@@ -366,7 +366,7 @@ print(colored('M16 with a non-matching string causes the printer to halt, so is 
 #PINS_DEBUGGING#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PINS_DEBUGGING'.format(os.getcwd())))
 print(colored('M43 - display pin status, toggle pins, watch pins, watch endstops & toggle LED, test servo probe, so is enabled.', "green"))
-#PHOTO_SWITCH_MS#####################################################################################################
+#PHOTO_SWITCH_MS########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PHOTO_SWITCH_MS {1:s}'.format(os.getcwd(), '50')))
 print(colored('Duration to hold the switch or keep CHDK_PIN high, so set to {0:s} ms.'.format('50'), "green"))
 
