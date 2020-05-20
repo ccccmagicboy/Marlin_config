@@ -331,7 +331,7 @@ print(colored('A smaller font may be used on the Info Screen, so is enabled.', "
 # subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable OVERLAY_GFX_REVERSE'.format(os.getcwd())))
 # print(colored('A smaller font may be used on the Info Screen, so is enabled.', "green"))
 #BABYSTEPPING###########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_ALWAYS_AVAILABLE BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE'.format(os.getcwd())))
 print(colored('We need babystepping, so is enabled.', "green"))
 #BEZIER_CURVE_SUPPORT###################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BEZIER_CURVE_SUPPORT'.format(os.getcwd())))
