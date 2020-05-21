@@ -200,11 +200,11 @@ print(colored('The neopixel led pin is define in board file, and here it is disa
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_BRIGHTNESS {1:s}'.format(os.getcwd(), '88')))
 print(colored('The Initial brightness of neopixel led is set to {0:s}.'.format('88'), "green"))
 #NEOPIXEL_TYPE##########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_TYPE {1:s}'.format(os.getcwd(), 'NEO_GRB')))
-print(colored('The type of neopixel led is set to {0:s}.'.format('NEO_GRB'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_TYPE {1:s}'.format(os.getcwd(), 'NEO_GRBW')))
+print(colored('The type of neopixel led is set to {0:s}.'.format('NEO_GRBW'), "green"))
 #NEOPIXEL_PIXELS########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_PIXELS {1:s}'.format(os.getcwd(), '9')))
-print(colored('The number of neopixel led is set to {0:s}.'.format('9'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NEOPIXEL_PIXELS {1:s}'.format(os.getcwd(), '16')))
+print(colored('The number of neopixel led is set to {0:s}.'.format('16'), "green"))
 #NEOPIXEL_IS_SEQUENTIAL#################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable NEOPIXEL_IS_SEQUENTIAL'.format(os.getcwd())))
 print(colored('The neopixel sequential is disabled', "red"))
