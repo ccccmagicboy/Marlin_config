@@ -316,14 +316,14 @@ print(colored('To cool down the stepper drivers and MOSFETs, so is enabled.', "g
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CONTROLLER_FAN_EDITABLE'.format(os.getcwd())))
 print(colored('Add controller fan menu, so is enabled.', "green"))
 #CONTROLLER_FAN_PIN#####################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CONTROLLER_FAN_PIN {1:s}'.format(os.getcwd(), 'FAN1_PIN')))
-print(colored('controller fan pin is set to {0:s}.'.format('FAN1_PIN'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CONTROLLER_FAN_PIN {1:s}'.format(os.getcwd(), 'FAN2_PIN')))
+print(colored('controller fan pin is set to {0:s}.'.format('FAN2_PIN'), "green"))
 #FAN_KICKSTART_TIME#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FAN_KICKSTART_TIME {1:s}'.format(os.getcwd(), '200')))
 print(colored('This gets the fan spinning reliably, so set to {0:s} ms.'.format('200'), "green"))
 #E0_AUTO_FAN_PIN########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_AUTO_FAN_PIN {1:s}'.format(os.getcwd(), 'FAN2_PIN')))
-print(colored('e0 fan pin is set to {0:s}.'.format('FAN2_PIN'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_AUTO_FAN_PIN {1:s}'.format(os.getcwd(), 'FAN1_PIN')))
+print(colored('e0 fan pin is set to {0:s}.'.format('FAN1_PIN'), "green"))
 #BEEP_ON_FEEDRATE_CHANGE################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BEEP_ON_FEEDRATE_CHANGE'.format(os.getcwd())))
 print(colored('Add beep when feedrate changed, so is enabled.', "green"))
