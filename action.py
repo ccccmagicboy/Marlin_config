@@ -271,7 +271,7 @@ print(colored('Include a page of printer information in the LCD Main Menu, so is
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable TURBO_BACK_MENU_ITEM'.format(os.getcwd())))
 print(colored('BACK menu items keep the highlight at the top, so is enabled', "green"))
 #LED_CONTROL_MENU#######################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable LED_CONTROL_MENU'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable LED_CONTROL_MENU LED_USER_PRESET_STARTUP'.format(os.getcwd())))
 print(colored('Add LED Control to the LCD menu, so is enabled', "green"))
 #MONITOR_DRIVER_STATUS##################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable MONITOR_DRIVER_STATUS'.format(os.getcwd())))
@@ -291,6 +291,21 @@ print(colored('Transmission to Host Buffer Size is set to {0:s}.'.format('32'), 
 #RX_BUFFER_SIZE#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set RX_BUFFER_SIZE {1:s}'.format(os.getcwd(), '32')))
 print(colored('RX Buffer Size is set to {0:s}.'.format('32'), "green"))
+#HYBRID_THRESHOLD#######################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable HYBRID_THRESHOLD'.format(os.getcwd())))
+print(colored('The driver will switch to spreadCycle when stepper speed is over HYBRID_THRESHOLD, so is enabled.', "green"))
+#X_RSENSE###############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_RSENSE {1:s}'.format(os.getcwd(), '0.1')))
+print(colored('X Rsense is set to {0:s}.'.format('0.1'), "green"))
+#Y_RSENSE###############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_RSENSE {1:s}'.format(os.getcwd(), '0.1')))
+print(colored('Y Rsense is set to {0:s}.'.format('0.1'), "green"))
+#Z_RSENSE###############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_RSENSE {1:s}'.format(os.getcwd(), '0.1')))
+print(colored('Z Rsense is set to {0:s}.'.format('0.1'), "green"))
+#E0_RSENSE##############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_RSENSE {1:s}'.format(os.getcwd(), '0.1')))
+print(colored('E0 Rsense is set to {0:s}.'.format('0.1'), "green"))
 #X_CURRENT##############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_CURRENT {1:s}'.format(os.getcwd(), '580')))
 print(colored('X (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('580'), "green"))
@@ -303,7 +318,13 @@ print(colored('Z (mA) RMS current. Multiply by 1.414 for peak current is set to 
 #E0_CURRENT#############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_CURRENT {1:s}'.format(os.getcwd(), '650')))
 print(colored('E0 (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('650'), "green"))
-#STEALTHCHOP_E#################################################################################################
+#TMC_HOME_PHASE#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set TMC_HOME_PHASE {1:s}'.format(os.getcwd(), '{ 896, 896, 896 }')))
+print(colored('Improve homing repeatability by homing to stepper coil nearest absolute, so is set to {0:s}.'.format('{ 896, 896, 896 }'), "green"))
+#SOFTWARE_DRIVER_ENABLE#################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable SOFTWARE_DRIVER_ENABLE'.format(os.getcwd())))
+print(colored('Use for drivers that do not use a dedicated enable pin to save the pin numbers, so is enabled.', "green"))
+#STEALTHCHOP_E##########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable STEALTHCHOP_E'.format(os.getcwd())))
 print(colored('When disabled, Marlin will use spreadCycle stepping mode, so e0 is disabled', "red"))
 #CHOPPER_TIMING#########################################################################################################
@@ -336,6 +357,9 @@ print(colored('A smaller font may be used on the Info Screen, so is disabled.', 
 #BABYSTEPPING###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE'.format(os.getcwd())))
 print(colored('We need babystepping, so is enabled.', "green"))
+#MOVE_Z_IDLE_MULTIPLICATOR########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOVE_Z_IDLE_MULTIPLICATOR {1:s}'.format(os.getcwd(), '10')))
+print(colored('z idle multiplicator is set to {0:s}mm.'.format('10'), "green"))
 #BEZIER_CURVE_SUPPORT###################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BEZIER_CURVE_SUPPORT'.format(os.getcwd())))
 print(colored('Support for G5 with XYZE destination and IJPQ offsets, so is enabled.', "green"))
@@ -372,6 +396,9 @@ print(colored('M43 - display pin status, toggle pins, watch pins, watch endstops
 #PHOTO_SWITCH_MS########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PHOTO_SWITCH_MS {1:s}'.format(os.getcwd(), '50')))
 print(colored('Duration to hold the switch or keep CHDK_PIN high, so set to {0:s} ms.'.format('50'), "green"))
+#GCODE_MACROS#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable GCODE_MACROS CUSTOM_USER_MENUS'.format(os.getcwd())))
+print(colored('Add G-codes M810-M819 to define and run G-code macros, so is enabled.', "green"))
 
 
 
