@@ -214,6 +214,24 @@ print(colored('The neopixel sequential is disabled', "red"))
 #NEOPIXEL_STARTUP_TEST##################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_STARTUP_TEST'.format(os.getcwd())))
 print(colored('The neopixel led startup test is enabled', "green"))
+#DEFAULT_Kp##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_Kp {1:s}'.format(os.getcwd(), '25.20')))
+print(colored('DEFAULT_Kp is set to {0:s}.'.format('25.20'), "green"))
+#DEFAULT_Ki##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_Ki {1:s}'.format(os.getcwd(), '2.11')))
+print(colored('DEFAULT_Ki is set to {0:s}.'.format('2.11'), "green"))
+#DEFAULT_Kd##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_Kd {1:s}'.format(os.getcwd(), '75.35')))
+print(colored('DEFAULT_Kd is set to {0:s}.'.format('75.35'), "green"))
+#DEFAULT_bedKp##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_bedKp {1:s}'.format(os.getcwd(), '356.34')))
+print(colored('DEFAULT_bedKp is set to {0:s}.'.format('356.34'), "green"))
+#DEFAULT_bedKi##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_bedKi {1:s}'.format(os.getcwd(), '70.15')))
+print(colored('DEFAULT_bedKi is set to {0:s}.'.format('70.15'), "green"))
+#DEFAULT_bedKd##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_bedKd {1:s}'.format(os.getcwd(), '452.51')))
+print(colored('DEFAULT_bedKd is set to {0:s}.'.format('452.51'), "green"))
 ########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
