@@ -235,6 +235,9 @@ print(colored('DEFAULT_bedKd is set to {0:s}.'.format('452.51'), "green"))
 #EEPROM_SETTINGS########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable EEPROM_SETTINGS'.format(os.getcwd())))
 print(colored('The EEPROM support is enabled', "green"))
+#EEPROM_BOOT_SILENT########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable EEPROM_BOOT_SILENT'.format(os.getcwd())))
+print(colored('The EEPROM boot silent support is disabled', "red"))
 ########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
@@ -271,8 +274,8 @@ print(colored('Use remaining time from M73 command instead of estimation, so is 
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ROTATE_PROGRESS_DISPLAY'.format(os.getcwd())))
 print(colored('Display (P)rogress, (E)lapsed, and (R)emaining time, so is enabled', "green"))
 #STATUS_FAN_FRAMES######################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set STATUS_FAN_FRAMES {1:s}'.format(os.getcwd(), '3')))
-print(colored('Number of fan animation frames is set to {0:s}.'.format('3'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set STATUS_FAN_FRAMES {1:s}'.format(os.getcwd(), '4')))
+print(colored('Number of fan animation frames is set to {0:s}.'.format('4'), "green"))
 #STATUS_HEAT_PERCENT####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable STATUS_HEAT_PERCENT'.format(os.getcwd())))
 print(colored('Show heating in a progress bar, so is enabled', "green"))
