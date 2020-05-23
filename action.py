@@ -340,7 +340,7 @@ print(colored('Z (mA) RMS current. Multiply by 1.414 for peak current is set to 
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_CURRENT {1:s}'.format(os.getcwd(), '650')))
 print(colored('E0 (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('650'), "green"))
 #TMC_HOME_PHASE#########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set TMC_HOME_PHASE {1:s}'.format(os.getcwd(), '{ 896, 896, 896 }')))
+replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define TMC_HOME_PHASE { 896, 896, 896 }', '#define TMC_HOME_PHASE { 896, 896, 896 }')
 print(colored('Improve homing repeatability by homing to stepper coil nearest absolute, so is set to {0:s}.'.format('{ 896, 896, 896 }'), "green"))
 #SOFTWARE_DRIVER_ENABLE#################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable SOFTWARE_DRIVER_ENABLE'.format(os.getcwd())))
@@ -378,7 +378,7 @@ print(colored('A smaller font may be used on the Info Screen, so is disabled.', 
 #BABYSTEPPING###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE'.format(os.getcwd())))
 print(colored('We need babystepping, so is enabled.', "green"))
-#MOVE_Z_IDLE_MULTIPLICATOR########################################################################################################
+#MOVE_Z_IDLE_MULTIPLICATOR##############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOVE_Z_IDLE_MULTIPLICATOR {1:s}'.format(os.getcwd(), '10')))
 print(colored('z idle multiplicator is set to {0:s}mm.'.format('10'), "green"))
 #BEZIER_CURVE_SUPPORT###################################################################################################
@@ -417,7 +417,7 @@ print(colored('M43 - display pin status, toggle pins, watch pins, watch endstops
 #PHOTO_SWITCH_MS########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PHOTO_SWITCH_MS {1:s}'.format(os.getcwd(), '50')))
 print(colored('Duration to hold the switch or keep CHDK_PIN high, so set to {0:s} ms.'.format('50'), "green"))
-#GCODE_MACROS#########################################################################################################
+#GCODE_MACROS###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable GCODE_MACROS CUSTOM_USER_MENUS'.format(os.getcwd())))
 print(colored('Add G-codes M810-M819 to define and run G-code macros, so is enabled.', "green"))
 
