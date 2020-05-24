@@ -370,8 +370,8 @@ print(colored('E0 (mA) RMS current. Multiply by 1.414 for peak current is set to
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define TMC_HOME_PHASE { 896, 896, 896 }', '#define TMC_HOME_PHASE { 896, 896, 896 }')
 print(colored('Improve homing repeatability by homing to stepper coil nearest absolute, so is set to {0:s}.'.format('{ 896, 896, 896 }'), "green"))
 #SOFTWARE_DRIVER_ENABLE#################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable SOFTWARE_DRIVER_ENABLE'.format(os.getcwd())))
-print(colored('Use for drivers that do not use a dedicated enable pin to save the pin numbers, so is enabled.', "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable SOFTWARE_DRIVER_ENABLE'.format(os.getcwd())))
+print(colored('Use for drivers that do not use a dedicated enable pin to save the pin numbers, but is disabled.', "red"))
 #STEALTHCHOP_E##########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable STEALTHCHOP_E'.format(os.getcwd())))
 print(colored('When disabled, Marlin will use spreadCycle stepping mode, so e0 is disabled', "red"))
