@@ -342,7 +342,7 @@ print(colored('Transmission to Host Buffer Size is set to {0:s}.'.format('32'), 
 #RX_BUFFER_SIZE#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set RX_BUFFER_SIZE {1:s}'.format(os.getcwd(), '32')))
 print(colored('RX Buffer Size is set to {0:s}.'.format('32'), "green"))
-#Z_MICROSTEPS###############################################################################################################
+#Z_MICROSTEPS###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_MICROSTEPS {1:s}'.format(os.getcwd(), '64')))
 print(colored('Z microsteps is set to {0:s}.'.format('64'), "green"))
 #HYBRID_THRESHOLD#######################################################################################################
@@ -411,6 +411,9 @@ print(colored('A smaller font may be used on the Info Screen, so is disabled.', 
 #BABYSTEPPING###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE'.format(os.getcwd())))
 print(colored('We need babystepping, so is enabled.', "green"))
+#BABYSTEP_MULTIPLICATOR_Z###############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BABYSTEP_MULTIPLICATOR_Z {1:s}'.format(os.getcwd(), '10')))
+print(colored('z babystepping multiplicator is set to {0:s}mm.'.format('10'), "green"))
 #MOVE_Z_IDLE_MULTIPLICATOR##############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOVE_Z_IDLE_MULTIPLICATOR {1:s}'.format(os.getcwd(), '10')))
 print(colored('z idle multiplicator is set to {0:s}mm.'.format('10'), "green"))
