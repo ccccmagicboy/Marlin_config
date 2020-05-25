@@ -361,17 +361,17 @@ print(colored('Z Rsense is set to {0:s}.'.format('0.1'), "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_RSENSE {1:s}'.format(os.getcwd(), '0.1')))
 print(colored('E0 Rsense is set to {0:s}.'.format('0.1'), "green"))
 #X_CURRENT##############################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_CURRENT {1:s}'.format(os.getcwd(), '700')))
-print(colored('X (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('700'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_CURRENT {1:s}'.format(os.getcwd(), '1000')))
+print(colored('X (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('1000'), "green"))
 #Y_CURRENT##############################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_CURRENT {1:s}'.format(os.getcwd(), '700')))
-print(colored('Y (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('700'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_CURRENT {1:s}'.format(os.getcwd(), '1000')))
+print(colored('Y (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('1000'), "green"))
 #Z_CURRENT##############################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_CURRENT {1:s}'.format(os.getcwd(), '700')))
-print(colored('Z (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('700'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_CURRENT {1:s}'.format(os.getcwd(), '1000')))
+print(colored('Z (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('1000'), "green"))
 #E0_CURRENT#############################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_CURRENT {1:s}'.format(os.getcwd(), '800')))
-print(colored('E0 (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('800'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_CURRENT {1:s}'.format(os.getcwd(), '1000')))
+print(colored('E0 (mA) RMS current. Multiply by 1.414 for peak current is set to {0:s}.'.format('1000'), "green"))
 #TMC_HOME_PHASE#########################################################################################################
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define TMC_HOME_PHASE { 896, 896, 896 }', '#define TMC_HOME_PHASE { 896, 896, 896 }')
 print(colored('Improve homing repeatability by homing to stepper coil nearest absolute, so is set to {0:s}.'.format('{ 896, 896, 896 }'), "green"))
