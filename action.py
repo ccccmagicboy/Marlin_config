@@ -141,8 +141,8 @@ print(colored('The z axis driver is set to {0:s}'.format('TMC2208'), "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_DRIVER_TYPE {1:s}'.format(os.getcwd(), 'TMC2208')))
 print(colored('The e0 axis driver is set to {0:s}'.format('TMC2208'), "green"))
 #DEFAULT_AXIS_STEPS_PER_UNIT############################################################################################
-replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), 'DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }', 'DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 1600, 97.5 }')
-print(colored('The default step/mm is set to {0:s}'.format('{ 80, 80, 1600, 97.5 }'), "green"))
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), 'DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }', 'DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 100, 97.5 }')
+print(colored('The default step/mm is set to {0:s}'.format('{ 80, 80, 100, 97.5 }'), "green"))
 #DEFAULT_MAX_FEEDRATE###################################################################################################
 replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), 'DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }', 'DEFAULT_MAX_FEEDRATE          { 300, 300, 75, 300 }')
 print(colored('The default max feedrate is set to {0:s} mm/s.'.format('{ 300, 300, 75, 300 }'), "green"))
@@ -343,8 +343,8 @@ print(colored('Transmission to Host Buffer Size is set to {0:s}.'.format('32'), 
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set RX_BUFFER_SIZE {1:s}'.format(os.getcwd(), '32')))
 print(colored('RX Buffer Size is set to {0:s}.'.format('32'), "green"))
 #Z_MICROSTEPS###########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_MICROSTEPS {1:s}'.format(os.getcwd(), '64')))
-print(colored('Z microsteps is set to {0:s}.'.format('64'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_MICROSTEPS {1:s}'.format(os.getcwd(), '4')))
+print(colored('Z microsteps is set to {0:s}.'.format('4'), "green"))
 #HYBRID_THRESHOLD#######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable HYBRID_THRESHOLD'.format(os.getcwd())))
 print(colored('The driver will switch to spreadCycle when stepper speed is over HYBRID_THRESHOLD, so is enabled.', "green"))
