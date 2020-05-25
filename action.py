@@ -393,6 +393,9 @@ print(colored('To cool down the stepper drivers and MOSFETs, so is enabled.', "g
 #CONTROLLER_FAN_EDITABLE################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CONTROLLER_FAN_EDITABLE'.format(os.getcwd())))
 print(colored('Add controller fan menu, so is enabled.', "green"))
+#CONTROLLERFAN_SPEED_IDLE#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CONTROLLERFAN_SPEED_IDLE {1:s}'.format(os.getcwd(), '127')))
+print(colored('controller fan idle is set to {0:s}.'.format('127'), "green"))
 #CONTROLLER_FAN_PIN#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CONTROLLER_FAN_PIN {1:s}'.format(os.getcwd(), 'FAN2_PIN')))
 print(colored('controller fan pin is set to {0:s}.'.format('FAN2_PIN'), "green"))
