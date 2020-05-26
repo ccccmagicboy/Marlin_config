@@ -257,6 +257,9 @@ print(colored('The EEPROM boot silent support is disabled', "red"))
 #HOMING_FEEDRATE_Z##########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set HOMING_FEEDRATE_Z {1:s}'.format(os.getcwd(), '(25*60)')))
 print(colored('z axis homing speed is set to {0:s}.'.format('(25*60)'), "green"))
+#NOZZLE_PARK_Z_FEEDRATE##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NOZZLE_PARK_Z_FEEDRATE {1:s}'.format(os.getcwd(), '25')))
+print(colored('z parking speed is set to {0:s}.'.format('25'), "green"))
 ########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
