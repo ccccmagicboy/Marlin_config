@@ -324,6 +324,15 @@ print(colored('BACK menu items keep the highlight at the top, so is enabled', "g
 #LED_CONTROL_MENU#######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable LED_CONTROL_MENU LED_USER_PRESET_STARTUP'.format(os.getcwd())))
 print(colored('Add LED Control to the LCD menu, so is enabled', "green"))
+#LED_USER_PRESET_RED####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set LED_USER_PRESET_RED {1:s}'.format(os.getcwd(), '0')))
+print(colored('User preset red is set to {0:s}.'.format('0'), "green"))
+#LED_USER_PRESET_GREEN##################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set LED_USER_PRESET_GREEN {1:s}'.format(os.getcwd(), '0')))
+print(colored('User preset green is set to {0:s}.'.format('0'), "green"))
+#LED_USER_PRESET_BLUE###################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set LED_USER_PRESET_BLUE {1:s}'.format(os.getcwd(), '0')))
+print(colored('User preset blue is set to {0:s}.'.format('0'), "green"))
 #MONITOR_DRIVER_STATUS##################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable MONITOR_DRIVER_STATUS'.format(os.getcwd())))
 print(colored('Monitor Trinamic drivers, so is enabled', "green"))
@@ -381,7 +390,7 @@ print(colored('Use for drivers that do not use a dedicated enable pin to save th
 #STEALTHCHOP_E##########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable STEALTHCHOP_E'.format(os.getcwd())))
 print(colored('When disabled, Marlin will use spreadCycle stepping mode, so e0 is disabled', "red"))
-# #CHOPPER_TIMING#########################################################################################################
+# #CHOPPER_TIMING#######################################################################################################
 # subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CHOPPER_TIMING {1:s}'.format(os.getcwd(), 'CHOPPER_DEFAULT_24V')))
 # print(colored('Optimize spreadCycle chopper parameters by using predefined parameter sets, so is set to {0:s}.'.format('CHOPPER_DEFAULT_24V'), "green"))
 #CHOPPER_TIMING#########################################################################################################
@@ -393,7 +402,7 @@ print(colored('To cool down the stepper drivers and MOSFETs, so is enabled.', "g
 #CONTROLLER_FAN_EDITABLE################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CONTROLLER_FAN_EDITABLE'.format(os.getcwd())))
 print(colored('Add controller fan menu, so is enabled.', "green"))
-#CONTROLLERFAN_SPEED_IDLE#####################################################################################################
+#CONTROLLERFAN_SPEED_IDLE###############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CONTROLLERFAN_SPEED_IDLE {1:s}'.format(os.getcwd(), '127')))
 print(colored('controller fan idle is set to {0:s}.'.format('127'), "green"))
 #CONTROLLER_FAN_PIN#####################################################################################################
@@ -438,7 +447,7 @@ print(colored('Advanced Pause is enabled.', "green"))
 #FILAMENT_CHANGE_UNLOAD_FEEDRATE########################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_UNLOAD_FEEDRATE {1:s}'.format(os.getcwd(), '30')))
 print(colored('Unload filament feedrate is set to {0:s}.'.format('30'), "green"))
-#FILAMENT_CHANGE_UNLOAD_LENGTH########################################################################################
+#FILAMENT_CHANGE_UNLOAD_LENGTH##########################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_UNLOAD_LENGTH {1:s}'.format(os.getcwd(), '450')))
 print(colored('The length of filament for a complete unload is set to {0:s}.'.format('450'), "green"))
 #FILAMENT_CHANGE_FAST_LOAD_LENGTH#######################################################################################
@@ -462,11 +471,14 @@ print(colored('Duration to hold the switch or keep CHDK_PIN high, so set to {0:s
 #GCODE_MACROS###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable GCODE_MACROS CUSTOM_USER_MENUS'.format(os.getcwd())))
 print(colored('Add G-codes M810-M819 to define and run G-code macros, so is enabled.', "green"))
-
-
-
-
-
+#HOTEND_IDLE_TIMEOUT####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable HOTEND_IDLE_TIMEOUT'.format(os.getcwd())))
+print(colored('Hotend idle timeout is good for protection, so is enabled.', "green"))
+#HOTEND_IDLE_TIMEOUT_SEC################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set HOTEND_IDLE_TIMEOUT_SEC {1:s}'.format(os.getcwd(), '(3*60)')))
+print(colored('Time without extruder movement to trigger protection, so set to {0:s} s.'.format('(3*60)'), "green"))#HOTEND_IDLE_MIN_TRIGGER################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set HOTEND_IDLE_MIN_TRIGGER {1:s}'.format(os.getcwd(), '100')))
+print(colored('Minimum temperature to enable hotend protection, so set to {0:s} ms.'.format('100'), "green"))
 ########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
