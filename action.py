@@ -200,9 +200,6 @@ print(colored('The lcd individual axis homing menu is enabled', "green"))
 #CR10_STOCKDISPLAY######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CR10_STOCKDISPLAY'.format(os.getcwd())))
 print(colored('The ender-3 stockdisplay is enabled', "green"))
-#SPEAKER################################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable SPEAKER'.format(os.getcwd())))
-print(colored('The speaker is enabled', "green"))
 #LCD_LANGUAGE###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set LCD_LANGUAGE {1:s}'.format(os.getcwd(), 'en')))
 print(colored('The language of LCD is set to {0:s}.'.format('en'), "green"))
