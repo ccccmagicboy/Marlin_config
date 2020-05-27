@@ -401,8 +401,8 @@ print(colored('When disabled, Marlin will use spreadCycle stepping mode, so e0 i
 # subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CHOPPER_TIMING {1:s}'.format(os.getcwd(), 'CHOPPER_DEFAULT_24V')))
 # print(colored('Optimize spreadCycle chopper parameters by using predefined parameter sets, so is set to {0:s}.'.format('CHOPPER_DEFAULT_24V'), "green"))
 #CHOPPER_TIMING#########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CHOPPER_TIMING {1:s}'.format(os.getcwd(), 'CHOPPER_DEFAULT_12V')))
-print(colored('Optimize spreadCycle chopper parameters by using predefined parameter sets, so is set to {0:s}.'.format('CHOPPER_DEFAULT_12V'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CHOPPER_TIMING {1:s}'.format(os.getcwd(), 'CHOPPER_PRUSAMK3_24V')))
+print(colored('Optimize spreadCycle chopper parameters by using predefined parameter sets, so is set to {0:s}.'.format('CHOPPER_PRUSAMK3_24V'), "green"))
 #USE_CONTROLLER_FAN#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable USE_CONTROLLER_FAN'.format(os.getcwd())))
 print(colored('To cool down the stepper drivers and MOSFETs, so is enabled.', "green"))
@@ -449,7 +449,7 @@ print(colored('It reduces motion calculations, so is enabled.', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BAUD_RATE_GCODE'.format(os.getcwd())))
 print(colored('Add M575 G-code to change the baud rate, so is enabled.', "green"))
 #ADVANCED_PAUSE_FEATURE#################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ADVANCED_PAUSE_FEATURE ADVANCED_PAUSE_CONTINUOUS_PURGE ADVANCED_PAUSE_FANS_PAUSE HOME_BEFORE_FILAMENT_CHANGE'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable ADVANCED_PAUSE_FEATURE ADVANCED_PAUSE_CONTINUOUS_PURGE ADVANCED_PAUSE_FANS_PAUSE HOME_BEFORE_FILAMENT_CHANGE PARK_HEAD_ON_PAUSE FILAMENT_LOAD_UNLOAD_GCODES FILAMENT_UNLOAD_ALL_EXTRUDERS'.format(os.getcwd())))
 print(colored('Advanced Pause is enabled.', "green"))
 #FILAMENT_CHANGE_UNLOAD_FEEDRATE########################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_UNLOAD_FEEDRATE {1:s}'.format(os.getcwd(), '30')))
@@ -489,7 +489,9 @@ print(colored('Minimum temperature to enable hotend protection, so set to {0:s} 
 #STARTUP_COMMANDS#######################################################################################################
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define STARTUP_COMMANDS "M17 Z"', '#define STARTUP_COMMANDS "M300 S5000 P300"')
 print(colored('beep when start.', "green"))
-########################################################################################################################
+#SAVED_POSITIONS########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set SAVED_POSITIONS {1:s}'.format(os.getcwd(), '12')))
+print(colored('G60/G61 Position Save and Return, so set to {0:s} slots.'.format('12'), "green"))
 ########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
