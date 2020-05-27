@@ -40,15 +40,6 @@ print(os.listdir(dst))
 
 os.chdir('my_marlin')
 
-# replaceAll(mk_path, "#webrepl.start()","import machine;".format(str))
-# opt_add
-# opt_enable
-# opt_disable
-# opt_set
-
-########################################################################################################################
-# Configuration.h
-########################################################################################################################
 print(colored("""
 ███╗   ███╗███████╗███████╗██████╗         ██████╗ ██████╗ ██████╗ 
 ████╗ ████║██╔════╝██╔════╝██╔══██╗        ╚════██╗██╔══██╗██╔══██╗
@@ -57,6 +48,10 @@ print(colored("""
 ██║ ╚═╝ ██║███████╗███████╗██████╔╝███████╗██████╔╝██████╔╝██║     
 ╚═╝     ╚═╝╚══════╝╚══════╝╚═════╝ ╚══════╝╚═════╝ ╚═════╝ ╚═╝  
 """, "green"))
+
+########################################################################################################################
+# Configuration.h
+########################################################################################################################
 print(colored("""
  ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ 
 ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ 
@@ -195,8 +190,8 @@ print(colored('The nozzle park point is set to {0:s}.'.format('{ (X_MIN_POS + 0)
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable INDIVIDUAL_AXIS_HOMING_MENU'.format(os.getcwd())))
 print(colored('The lcd individual axis homing menu is enabled', "green"))
 #PRINTCOUNTER###########################################################################################################
-# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PRINTCOUNTER'.format(os.getcwd())))
-# print(colored('The print counter is enabled', "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PRINTCOUNTER'.format(os.getcwd())))
+print(colored('The print counter is enabled', "green"))
 #CR10_STOCKDISPLAY######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CR10_STOCKDISPLAY'.format(os.getcwd())))
 print(colored('The ender-3 stockdisplay is enabled', "green"))
@@ -357,6 +352,18 @@ print(colored('Z microsteps is set to {0:s}.'.format('4'), "green"))
 #HYBRID_THRESHOLD#######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable HYBRID_THRESHOLD'.format(os.getcwd())))
 print(colored('The driver will switch to spreadCycle when stepper speed is over HYBRID_THRESHOLD, so is enabled.', "green"))
+#X_HYBRID_THRESHOLD#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_HYBRID_THRESHOLD {1:s}'.format(os.getcwd(), '130')))
+print(colored('X motor hybrid threshold is set to {0:s}mm/s.'.format('130'), "green"))
+#Y_HYBRID_THRESHOLD#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_HYBRID_THRESHOLD {1:s}'.format(os.getcwd(), '130')))
+print(colored('Y motor hybrid threshold is set to {0:s}mm/s.'.format('130'), "green"))
+#Z_HYBRID_THRESHOLD#####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_HYBRID_THRESHOLD {1:s}'.format(os.getcwd(), '35')))
+print(colored('Z motor hybrid threshold is set to {0:s}mm/s.'.format('35'), "green"))
+#E0_HYBRID_THRESHOLD####################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set E0_HYBRID_THRESHOLD {1:s}'.format(os.getcwd(), '35')))
+print(colored('E0 motor hybrid threshold is set to {0:s}mm/s.'.format('35'), "green"))
 #X_RSENSE###############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_RSENSE {1:s}'.format(os.getcwd(), '0.1')))
 print(colored('X Rsense is set to {0:s}.'.format('0.1'), "green"))
@@ -479,6 +486,9 @@ subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set HOTEND_IDLE_TIMEOUT_SEC
 print(colored('Time without extruder movement to trigger protection, so set to {0:s} s.'.format('(3*60)'), "green"))#HOTEND_IDLE_MIN_TRIGGER################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set HOTEND_IDLE_MIN_TRIGGER {1:s}'.format(os.getcwd(), '100')))
 print(colored('Minimum temperature to enable hotend protection, so set to {0:s} ms.'.format('100'), "green"))
+#STARTUP_COMMANDS#######################################################################################################
+replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define STARTUP_COMMANDS "M17 Z"', '#define STARTUP_COMMANDS "M300 S5000 P300"')
+print(colored('beep when start.', "green"))
 ########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
