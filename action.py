@@ -397,12 +397,9 @@ print(colored('Use for drivers that do not use a dedicated enable pin to save th
 #STEALTHCHOP_E##########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable STEALTHCHOP_E'.format(os.getcwd())))
 print(colored('When disabled, Marlin will use spreadCycle stepping mode, so e0 is disabled', "red"))
-# #CHOPPER_TIMING#######################################################################################################
-# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CHOPPER_TIMING {1:s}'.format(os.getcwd(), 'CHOPPER_DEFAULT_24V')))
-# print(colored('Optimize spreadCycle chopper parameters by using predefined parameter sets, so is set to {0:s}.'.format('CHOPPER_DEFAULT_24V'), "green"))
-#CHOPPER_TIMING#########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CHOPPER_TIMING {1:s}'.format(os.getcwd(), 'CHOPPER_PRUSAMK3_24V')))
-print(colored('Optimize spreadCycle chopper parameters by using predefined parameter sets, so is set to {0:s}.'.format('CHOPPER_PRUSAMK3_24V'), "green"))
+#CHOPPER_TIMING#######################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CHOPPER_TIMING {1:s}'.format(os.getcwd(), 'CHOPPER_DEFAULT_12V')))
+print(colored('Optimize spreadCycle chopper parameters by using predefined parameter sets, so is set to {0:s}.'.format('CHOPPER_DEFAULT_12V'), "green"))
 #USE_CONTROLLER_FAN#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable USE_CONTROLLER_FAN'.format(os.getcwd())))
 print(colored('To cool down the stepper drivers and MOSFETs, so is enabled.', "green"))
