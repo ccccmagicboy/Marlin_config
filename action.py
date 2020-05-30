@@ -490,11 +490,28 @@ print(colored('beep when start.', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set SAVED_POSITIONS {1:s}'.format(os.getcwd(), '12')))
 print(colored('G60/G61 Position Save and Return, so set to {0:s} slots.'.format('12'), "green"))
 ########################################################################################################################
+#HOME_AFTER_DEACTIVATE##################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable HOME_AFTER_DEACTIVATE'.format(os.getcwd())))
+print(colored('Require rehoming after steppers are deactivated, so is enabled.', "green"))
 ########################################################################################################################
+# #EMERGENCY_PARSER##################################################################################################
+# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable EMERGENCY_PARSER'.format(os.getcwd())))
+# print(colored('Add a low-level parser, so is enabled.', "green"))
 ########################################################################################################################
+# #REPETIER_GCODE_M360##################################################################################################
+# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable REPETIER_GCODE_M360'.format(os.getcwd())))
+# print(colored('Add commands originally from Repetier FW, so is enabled.', "green"))
 ########################################################################################################################
+#HOST_ACTION_COMMANDS###################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable HOST_ACTION_COMMANDS HOST_PROMPT_SUPPORT'.format(os.getcwd())))
+print(colored('Host Action Commands, so is enabled.', "green"))
 ########################################################################################################################
+# SERVICE_NAME_1 
+# SERVICE_INTERVAL_1
 ########################################################################################################################
+# #MARLIN_DEV_MODE########################################################################################################
+# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable MARLIN_DEV_MODE'.format(os.getcwd())))
+# print(colored('Enable Marlin dev mode which adds some special commands, so is enabled.', "green"))
 ########################################################################################################################
 ########################################################################################################################
 
