@@ -5,6 +5,10 @@ inputs:
     description: 'input the board name'
     required: true
     default: 'BOARD_CCROBOT_MEEB_3DP'
+  LCD_LANGUAGE:
+    description: 'input the LCD language'
+    required: true
+    default: 'en'    
 outputs:
   RESULT: #
     description: 'output result string'
