@@ -79,8 +79,8 @@ print(colored('The second serial is UART1', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BAUDRATE {1:s}'.format(os.getcwd(), '115200')))
 print(colored('The serial bitrate is 115200', "green"))
 #MOTHERBOARD############################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOTHERBOARD {1:s}'.format(os.getcwd(), os.environ['BOARD'])))
-print(colored('The select board is {0:s}'.format(os.environ['BOARD']), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOTHERBOARD {1:s}'.format(os.getcwd(), os.environ['INPUT_BOARD'])))
+print(colored('The select board is {0:s}'.format(os.environ['INPUT_BOARD']), "green"))
 #CUSTOM_MACHINE_NAME####################################################################################################
 replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '//#define CUSTOM_MACHINE_NAME "3D Printer"', '#define CUSTOM_MACHINE_NAME "CR10-mini"')
 print(colored('The machine name is {0:s}'.format('CR10-mini'), "green"))
@@ -196,8 +196,8 @@ print(colored('The print counter is enabled', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable CR10_STOCKDISPLAY'.format(os.getcwd())))
 print(colored('The ender-3 stockdisplay is enabled', "green"))
 #LCD_LANGUAGE###########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set LCD_LANGUAGE {1:s}'.format(os.getcwd(), 'en')))
-print(colored('The language of LCD is set to {0:s}.'.format('en'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set LCD_LANGUAGE {1:s}'.format(os.getcwd(), os.environ['INPUT_LCD_LANGUAGE'])))
+print(colored('The language of LCD is set to {0:s}.'.format(os.environ['INPUT_LCD_LANGUAGE']), "green"))
 #NEOPIXEL_LED###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable NEOPIXEL_LED'.format(os.getcwd())))
 print(colored('The neopixel led is enabled', "green"))
