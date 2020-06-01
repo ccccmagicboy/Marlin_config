@@ -350,8 +350,8 @@ print(colored('RX Buffer Size is set to {0:s}.'.format('32'), "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_MICROSTEPS {1:s}'.format(os.getcwd(), '4')))
 print(colored('Z microsteps is set to {0:s}.'.format('4'), "green"))
 #HYBRID_THRESHOLD#######################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable HYBRID_THRESHOLD'.format(os.getcwd())))
-print(colored('The driver will switch to spreadCycle when stepper speed is over HYBRID_THRESHOLD, so is enabled.', "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable HYBRID_THRESHOLD'.format(os.getcwd())))
+print(colored('The driver will switch to spreadCycle when stepper speed is over HYBRID_THRESHOLD, so is disabled.', "red"))
 #X_HYBRID_THRESHOLD#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_HYBRID_THRESHOLD {1:s}'.format(os.getcwd(), '130')))
 print(colored('X motor hybrid threshold is set to {0:s}mm/s.'.format('130'), "green"))
