@@ -412,6 +412,9 @@ print(colored('Add controller fan menu, so is enabled.', "green"))
 #CONTROLLERFAN_SPEED_IDLE###############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CONTROLLERFAN_SPEED_IDLE {1:s}'.format(os.getcwd(), '0')))
 print(colored('controller fan idle is set to {0:s}.'.format('0'), "green"))
+#CONTROLLERFAN_IDLE_TIME################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CONTROLLERFAN_IDLE_TIME {1:s}'.format(os.getcwd(), '10')))
+print(colored('Extra time to keep the fan running after disabling motors is set to {0:s}.'.format('10'), "green"))
 #CONTROLLER_FAN_PIN#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set CONTROLLER_FAN_PIN {1:s}'.format(os.getcwd(), 'FAN2_PIN')))
 print(colored('controller fan pin is set to {0:s}.'.format('FAN2_PIN'), "green"))
