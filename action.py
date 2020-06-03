@@ -266,8 +266,8 @@ print(colored('Thea probe connected to the Z-MIN pin support is disabled', "red"
 #NOZZLE_TO_PROBE_OFFSET#################################################################################################
 replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }', '#define NOZZLE_TO_PROBE_OFFSET { -44.5, -10, -1.00 }')
 print(colored('Specify a Probe position as {0:s}'.format('{ -44.5, -10, -1.00 }'), "green"))
-#MIN_PROBE_EDGE#########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MIN_PROBE_EDGE {1:s}'.format(os.getcwd(), '10')))
+#PROBING_MARGIN#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PROBING_MARGIN {1:s}'.format(os.getcwd(), '10')))
 print(colored('Most probes should stay away from the edges of the bed, so is set to {0:s}mm.'.format('10'), "green"))
 #XY_PROBE_SPEED#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set XY_PROBE_SPEED {1:s}'.format(os.getcwd(), '6000')))
