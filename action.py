@@ -453,8 +453,8 @@ print(colored('A smaller font may be used on the Info Screen, so is disabled.', 
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE'.format(os.getcwd())))
 print(colored('We need babystepping, so is enabled.', "green"))
 #BABYSTEP_MULTIPLICATOR_Z###############################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BABYSTEP_MULTIPLICATOR_Z {1:s}'.format(os.getcwd(), '10')))
-print(colored('z babystepping multiplicator is set to {0:s}mm.'.format('10'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BABYSTEP_MULTIPLICATOR_Z {1:s}'.format(os.getcwd(), '5')))
+print(colored('z babystepping multiplicator is set to {0:s}, so one turn move z 0.01 * 5 = 0.05'.format('5'), "green"))
 #MOVE_Z_IDLE_MULTIPLICATOR##############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOVE_Z_IDLE_MULTIPLICATOR {1:s}'.format(os.getcwd(), '10')))
 print(colored('z idle multiplicator is set to {0:s}mm.'.format('10'), "green"))
@@ -536,6 +536,19 @@ print(colored('Host Action Commands, so is enabled.', "green"))
 # print(colored('Enable Marlin dev mode which adds some special commands, so is enabled.', "green"))
 ########################################################################################################################
 ########################################################################################################################
+########################################################################################################################
+########################################################################################################################
+#BLTOUCH_DELAY##########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BLTOUCH_DELAY {1:s}'.format(os.getcwd(), '500')))
+print(colored('The probe needs time to recognize the command, so set to {0:s} ms.'.format('500'), "green"))
+#BABYSTEP_ZPROBE_OFFSET#################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEP_ZPROBE_OFFSET BABYSTEP_ZPROBE_GFX_OVERLAY'.format(os.getcwd())))
+print(colored('Enable graphical overlay on Z-offset editor, so is enabled.', "green"))
+
+
+
+
+
 
 str = '0000'
 if None != str:
