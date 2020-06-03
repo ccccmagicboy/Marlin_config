@@ -243,16 +243,35 @@ print(colored('DEFAULT_bedKd is set to {0:s}.'.format('452.51'), "green"))
 #EEPROM_SETTINGS########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable EEPROM_SETTINGS'.format(os.getcwd())))
 print(colored('The EEPROM support is enabled', "green"))
-#EEPROM_BOOT_SILENT########################################################################################################
+#EEPROM_BOOT_SILENT#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable EEPROM_BOOT_SILENT'.format(os.getcwd())))
 print(colored('The EEPROM boot silent support is disabled', "red"))
-#HOMING_FEEDRATE_Z##########################################################################################################
+#HOMING_FEEDRATE_Z######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set HOMING_FEEDRATE_Z {1:s}'.format(os.getcwd(), '(25*60)')))
 print(colored('z axis homing speed is set to {0:s}.'.format('(25*60)'), "green"))
-#NOZZLE_PARK_Z_FEEDRATE##########################################################################################################
+#NOZZLE_PARK_Z_FEEDRATE#################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set NOZZLE_PARK_Z_FEEDRATE {1:s}'.format(os.getcwd(), '25')))
 print(colored('z parking speed is set to {0:s}.'.format('25'), "green"))
 ########################################################################################################################
+#                                                     NEW BELOW                                                        #
+#BLTOUCH################################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BLTOUCH Z_MIN_PROBE_REPEATABILITY_TEST'.format(os.getcwd())))
+print(colored('The BLTOUCH support is enabled', "green"))
+#AUTO_BED_LEVELING_BILINEAR#############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable AUTO_BED_LEVELING_BILINEAR RESTORE_LEVELING_AFTER_G28'.format(os.getcwd())))
+print(colored('Auto bed leveling bilinear support is enabled', "green"))
+#Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN#####################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN'.format(os.getcwd())))
+print(colored('Thea probe connected to the Z-MIN pin support is disabled', "red"))
+#NOZZLE_TO_PROBE_OFFSET#################################################################################################
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }', '#define NOZZLE_TO_PROBE_OFFSET { -44.5, -10, -1.00 }')
+print(colored('Specify a Probe position as {0:s}'.format('{ -44.5, -10, -1.00 }'), "green"))
+#MIN_PROBE_EDGE#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MIN_PROBE_EDGE {1:s}'.format(os.getcwd(), '10')))
+print(colored('Most probes should stay away from the edges of the bed, so is set to {0:s}mm.'.format('10'), "green"))
+#XY_PROBE_SPEED#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set XY_PROBE_SPEED {1:s}'.format(os.getcwd(), '6000')))
+print(colored('X and Y axis travel speed (mm/m) between probes is set to {0:s}mm/min.'.format('6000'), "green"))
 ########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
