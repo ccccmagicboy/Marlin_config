@@ -169,8 +169,8 @@ print(colored('The x bed size is set to {0:s} mm.'.format('235'), "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_BED_SIZE {1:s}'.format(os.getcwd(), '235')))
 print(colored('The y bed size is set ot {0:s} mm.'.format('235'), "green"))
 #Z_MAX_POS##############################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_MAX_POS {1:s}'.format(os.getcwd(), '240')))
-print(colored('The z max is set to {0:s} mm.'.format('240'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_MAX_POS {1:s}'.format(os.getcwd(), '235')))
+print(colored('The z max is set to {0:s} mm.'.format('235'), "green"))
 #LEVEL_BED_CORNERS######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable LEVEL_BED_CORNERS'.format(os.getcwd())))
 print(colored('The manunal z bed corners leveling is enabled', "green"))
