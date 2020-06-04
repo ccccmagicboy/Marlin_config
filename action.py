@@ -241,7 +241,7 @@ print(colored('DEFAULT_bedKi is set to {0:s}.'.format('70.15'), "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set DEFAULT_bedKd {1:s}'.format(os.getcwd(), '452.51')))
 print(colored('DEFAULT_bedKd is set to {0:s}.'.format('452.51'), "green"))
 #EEPROM_SETTINGS########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable EEPROM_SETTINGS'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable EEPROM_SETTINGS EEPROM_AUTO_INIT'.format(os.getcwd())))
 print(colored('The EEPROM support is enabled', "green"))
 #EEPROM_BOOT_SILENT#####################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable EEPROM_BOOT_SILENT'.format(os.getcwd())))
