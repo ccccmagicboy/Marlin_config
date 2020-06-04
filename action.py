@@ -546,7 +546,7 @@ subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEP_ZPROBE_OFFS
 print(colored('Enable graphical overlay on Z-offset editor, so is enabled.', "green"))
 #RESET##################################################################################################################
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_5 "Home & Info"', '#define USER_DESC_5 "Reset"')
-replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_5 "G28\nM503"', '#define USER_GCODE_5 "M997"')
+replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_5 "G28', '#define USER_GCODE_5 "M997')
 print(colored('Add reset the board menu command', "green"))
 
 
