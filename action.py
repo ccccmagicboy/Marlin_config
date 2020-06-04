@@ -498,7 +498,7 @@ print(colored('G60/G61 Position Save and Return, so set to {0:s} slots.'.format(
 ########################################################################################################################
 #RESET##################################################################################################################
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_5 "Home & Info"', '#define USER_DESC_5 "Reset"')
-replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_5 "G28\nM503"', '#define USER_GCODE_5 "M997"')
+replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_5 "G28', '#define USER_GCODE_5 "M997')
 print(colored('Add reset the board menu command', "green"))
 ########################################################################################################################
 ########################################################################################################################
