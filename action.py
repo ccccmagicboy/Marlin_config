@@ -264,8 +264,8 @@ print(colored('Auto bed leveling bilinear support is enabled', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN'.format(os.getcwd())))
 print(colored('Thea probe connected to the Z-MIN pin support is disabled', "red"))
 #NOZZLE_TO_PROBE_OFFSET#################################################################################################
-replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }', '#define NOZZLE_TO_PROBE_OFFSET { -41, -14, -1.00 }')
-print(colored('Specify a Probe position as {0:s}'.format('{ -44.5, -10, -1.00 }'), "green"))
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }', '#define NOZZLE_TO_PROBE_OFFSET { -41, -14, -2.00 }')
+print(colored('Specify a Probe position as {0:s}'.format('{ -41, -14, -2.00 }'), "green"))
 #PROBING_MARGIN#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PROBING_MARGIN {1:s}'.format(os.getcwd(), '10')))
 print(colored('Most probes should stay away from the edges of the bed, so is set to {0:s}mm.'.format('10'), "green"))
@@ -276,9 +276,16 @@ print(colored('X and Y axis travel speed (mm/m) between probes is set to {0:s}mm
 #BED####################################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable DEBUG_LEVELING_FEATURE G26_MESH_VALIDATION MESH_EDIT_GFX_OVERLAY LCD_BED_LEVELING MESH_EDIT_MENU'.format(os.getcwd())))
 print(colored('The BED LEVELING support is enabled', "green"))
-#MESH_INSET#########################################################################################################
+#MESH_INSET#############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MESH_INSET {1:s}'.format(os.getcwd(), '20')))
 print(colored('Set Mesh bounds as an inset region of the bed to {0:s}mm.'.format('20'), "green"))
+#MESH_TEST_HOTEND_TEMP##################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MESH_TEST_HOTEND_TEMP {1:s}'.format(os.getcwd(), '210')))
+print(colored('Default nozzle temperature for the G26 Mesh Validation Tool is set to {0:s}.'.format('210'), "green"))
+#G26_RETRACT_MULTIPLIER#################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set G26_RETRACT_MULTIPLIER {1:s}'.format(os.getcwd(), '3.6')))
+print(colored('G26 Q (retraction) used by default between mesh test elements is set to {0:s}mm.'.format('3.6'), "green"))
+
 ########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
