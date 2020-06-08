@@ -166,8 +166,8 @@ print(colored('The z after homing is set to {0:s} mm.'.format('10'), "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_BED_SIZE {1:s}'.format(os.getcwd(), '300')))
 print(colored('The x bed size is set to {0:s} mm.'.format('300'), "green"))
 #Y_BED_SIZE#############################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_BED_SIZE {1:s}'.format(os.getcwd(), '224')))
-print(colored('The y bed size is set ot {0:s} mm.'.format('225'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_BED_SIZE {1:s}'.format(os.getcwd(), '221')))
+print(colored('The y bed size is set ot {0:s} mm.'.format('221'), "green"))
 #Z_MAX_POS##############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_MAX_POS {1:s}'.format(os.getcwd(), '290')))
 print(colored('The z max is set to {0:s} mm.'.format('290'), "green"))
@@ -264,7 +264,7 @@ print(colored('Auto bed leveling bilinear support is enabled', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN'.format(os.getcwd())))
 print(colored('Thea probe connected to the Z-MIN pin support is disabled', "red"))
 #NOZZLE_TO_PROBE_OFFSET#################################################################################################
-replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }', '#define NOZZLE_TO_PROBE_OFFSET { -44.5, -10, -1.00 }')
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }', '#define NOZZLE_TO_PROBE_OFFSET { -41, -14, -1.00 }')
 print(colored('Specify a Probe position as {0:s}'.format('{ -44.5, -10, -1.00 }'), "green"))
 #PROBING_MARGIN#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PROBING_MARGIN {1:s}'.format(os.getcwd(), '10')))
