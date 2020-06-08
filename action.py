@@ -264,8 +264,8 @@ print(colored('Auto bed leveling bilinear support is enabled', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN'.format(os.getcwd())))
 print(colored('Thea probe connected to the Z-MIN pin support is disabled', "red"))
 #NOZZLE_TO_PROBE_OFFSET#################################################################################################
-replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }', '#define NOZZLE_TO_PROBE_OFFSET { -41, -14, -2.00 }')
-print(colored('Specify a Probe position as {0:s}'.format('{ -41, -14, -2.00 }'), "green"))
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }', '#define NOZZLE_TO_PROBE_OFFSET { -41, -14, 0.00 }')
+print(colored('Specify a Probe position as {0:s}'.format('{ -41, -14, 0.00 }'), "green"))
 #PROBING_MARGIN#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PROBING_MARGIN {1:s}'.format(os.getcwd(), '10')))
 print(colored('Most probes should stay away from the edges of the bed, so is set to {0:s}mm.'.format('10'), "green"))
@@ -487,8 +487,8 @@ print(colored('Advanced Pause is enabled.', "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_UNLOAD_FEEDRATE {1:s}'.format(os.getcwd(), '30')))
 print(colored('Unload filament feedrate is set to {0:s}.'.format('30'), "green"))
 #FILAMENT_CHANGE_UNLOAD_LENGTH##########################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_UNLOAD_LENGTH {1:s}'.format(os.getcwd(), '450')))
-print(colored('The length of filament for a complete unload is set to {0:s}.'.format('450'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_UNLOAD_LENGTH {1:s}'.format(os.getcwd(), '500')))
+print(colored('The length of filament for a complete unload is set to {0:s}.'.format('500'), "green"))
 #FILAMENT_CHANGE_FAST_LOAD_LENGTH#######################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set FILAMENT_CHANGE_FAST_LOAD_LENGTH {1:s}'.format(os.getcwd(), '200')))
 print(colored('Load length of filament from extruder gear to nozzle is set to {0:s}.'.format('200'), "green"))
