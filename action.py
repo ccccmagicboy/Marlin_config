@@ -273,6 +273,12 @@ print(colored('Most probes should stay away from the edges of the bed, so is set
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set XY_PROBE_SPEED {1:s}'.format(os.getcwd(), '6000')))
 print(colored('X and Y axis travel speed (mm/m) between probes is set to {0:s}mm/min.'.format('6000'), "green"))
 ########################################################################################################################
+#BED####################################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable DEBUG_LEVELING_FEATURE G26_MESH_VALIDATION MESH_EDIT_GFX_OVERLAY LCD_BED_LEVELING MESH_EDIT_MENU'.format(os.getcwd())))
+print(colored('The BED LEVELING support is enabled', "green"))
+#MESH_INSET#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MESH_INSET {1:s}'.format(os.getcwd(), '20')))
+print(colored('Set Mesh bounds as an inset region of the bed to {0:s}mm.'.format('20'), "green"))
 ########################################################################################################################
 ########################################################################################################################
 ########################################################################################################################
