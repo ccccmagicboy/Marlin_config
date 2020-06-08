@@ -166,7 +166,7 @@ print(colored('The z after homing is set to {0:s} mm.'.format('10'), "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set X_BED_SIZE {1:s}'.format(os.getcwd(), '300')))
 print(colored('The x bed size is set to {0:s} mm.'.format('300'), "green"))
 #Y_BED_SIZE#############################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_BED_SIZE {1:s}'.format(os.getcwd(), '225')))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Y_BED_SIZE {1:s}'.format(os.getcwd(), '224')))
 print(colored('The y bed size is set ot {0:s} mm.'.format('225'), "green"))
 #Z_MAX_POS##############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set Z_MAX_POS {1:s}'.format(os.getcwd(), '290')))
@@ -554,6 +554,22 @@ print(colored('Enable graphical overlay on Z-offset editor, so is enabled.', "gr
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_5 "Home & Info"', '#define USER_DESC_5 "Reset"')
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_5 "G28', '#define USER_GCODE_5 "M997')
 print(colored('Add reset the board menu command', "green"))
+#G29_RETRY_AND_RECOVER##################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable G29_RETRY_AND_RECOVER'.format(os.getcwd())))
+print(colored('Repeatedly attempt G29 leveling until it succeeds, so is enabled.', "green"))
+#MESH_MIN_X#############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MESH_MIN_X {1:s}'.format(os.getcwd(), 'MESH_INSET')))
+print(colored('Override the mesh area if the automatic (max) area is too large, so set to {0:s}.'.format('MESH_INSET'), "green"))
+#MESH_MIN_Y#############################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MESH_MIN_Y {1:s}'.format(os.getcwd(), 'MESH_INSET')))
+print(colored('Override the mesh area if the automatic (max) area is too large, so set to {0:s}.'.format('MESH_INSET'), "green"))
+#MESH_MAX_X#############################################################################################################
+replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define MESH_MAX_X X_BED_SIZE - (MESH_INSET)', '#define MESH_MAX_X X_BED_SIZE - (MESH_INSET)')
+print(colored('Override the mesh area if the automatic (max) area is too large.', "green"))
+#MESH_MAX_Y#############################################################################################################
+replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)', '#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)')
+print(colored('Override the mesh area if the automatic (max) area is too large.', "green"))
+
 
 
 
