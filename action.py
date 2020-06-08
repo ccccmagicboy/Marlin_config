@@ -258,11 +258,14 @@ print(colored('z parking speed is set to {0:s}.'.format('25'), "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BLTOUCH Z_MIN_PROBE_REPEATABILITY_TEST'.format(os.getcwd())))
 print(colored('The BLTOUCH support is enabled', "green"))
 #AUTO_BED_LEVELING_BILINEAR#############################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable AUTO_BED_LEVELING_BILINEAR RESTORE_LEVELING_AFTER_G28'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable AUTO_BED_LEVELING_BILINEAR'.format(os.getcwd())))
 print(colored('Auto bed leveling bilinear support is enabled', "green"))
+#RESTORE_LEVELING_AFTER_G28#####################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable RESTORE_LEVELING_AFTER_G28'.format(os.getcwd())))
+print(colored('The G28 will disable the leveling', "red"))
 #Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN#####################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN'.format(os.getcwd())))
-print(colored('Thea probe connected to the Z-MIN pin support is disabled', "red"))
+print(colored('The probe connected to the Z-MIN pin support is disabled', "red"))
 #NOZZLE_TO_PROBE_OFFSET#################################################################################################
 replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }', '#define NOZZLE_TO_PROBE_OFFSET { -41, -14, 0.00 }')
 print(colored('Specify a Probe position as {0:s}'.format('{ -41, -14, 0.00 }'), "green"))
@@ -562,8 +565,8 @@ replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_5 "G28', '#define USER_GCODE_5 "M997')
 print(colored('Add reset the board menu command', "green"))
 #G29_RETRY_AND_RECOVER##################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable G29_RETRY_AND_RECOVER'.format(os.getcwd())))
-print(colored('Repeatedly attempt G29 leveling until it succeeds, so is enabled.', "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable G29_RETRY_AND_RECOVER'.format(os.getcwd())))
+print(colored('Repeatedly attempt G29 leveling until it succeeds, No!!! so is disabled.', "red"))
 #MESH_MIN_X#############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MESH_MIN_X {1:s}'.format(os.getcwd(), 'MESH_INSET')))
 print(colored('Override the mesh area if the automatic (max) area is too large, so set to {0:s}.'.format('MESH_INSET'), "green"))
