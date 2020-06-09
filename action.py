@@ -510,6 +510,18 @@ print(colored('Load length of filament from extruder gear to nozzle is set to {0
 #PHOTO_GCODE############################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PHOTO_GCODE'.format(os.getcwd())))
 print(colored('Add the M240 G-code to take a photo, so is enabled.', "green"))
+#PHOTO_POSITION#########################################################################################################
+replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define PHOTO_POSITION { X_MAX_POS - 5, Y_MAX_POS, 0 }', '#define PHOTO_POSITION { X_MAX_POS - 5, Y_MAX_POS, 2 }')
+print(colored('Set the photo position.', "green"))
+#PHOTO_DELAY_MS#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PHOTO_DELAY_MS {1:s}'.format(os.getcwd(), '100')))
+print(colored('Duration to pause before moving back is set to {0:s} ms.'.format('100'), "green"))
+#PHOTO_RETRACT_MM#######################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PHOTO_RETRACT_MM {1:s}'.format(os.getcwd(), '4.2')))
+print(colored('E retract/recover for the photo move is set to {0:s} mm.'.format('4.2'), "green"))
+#PHOTO_SWITCH_MS########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PHOTO_SWITCH_MS {1:s}'.format(os.getcwd(), '50')))
+print(colored('Duration to hold the switch or keep CHDK_PIN high, so set to {0:s} ms.'.format('50'), "green"))
 #M115_GEOMETRY_REPORT###################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable M115_GEOMETRY_REPORT'.format(os.getcwd())))
 print(colored('Include capabilities in M115 output, so is enabled.', "green"))
@@ -519,9 +531,6 @@ print(colored('M16 with a non-matching string causes the printer to halt, so is 
 #PINS_DEBUGGING#########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable PINS_DEBUGGING'.format(os.getcwd())))
 print(colored('M43 - display pin status, toggle pins, watch pins, watch endstops & toggle LED, test servo probe, so is enabled.', "green"))
-#PHOTO_SWITCH_MS########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PHOTO_SWITCH_MS {1:s}'.format(os.getcwd(), '50')))
-print(colored('Duration to hold the switch or keep CHDK_PIN high, so set to {0:s} ms.'.format('50'), "green"))
 #GCODE_MACROS###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable GCODE_MACROS CUSTOM_USER_MENUS'.format(os.getcwd())))
 print(colored('Add G-codes M810-M819 to define and run G-code macros, so is enabled.', "green"))
