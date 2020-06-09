@@ -297,6 +297,9 @@ print(colored('beep when G29 finish.', "green"))
 #FAST_PWM_FAN###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable FAST_PWM_FAN'.format(os.getcwd())))
 print(colored('Removes the PWM noise but increases heating is enabled', "green"))
+#DEBUG_EEPROM_READWRITE###########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable DEBUG_EEPROM_READWRITE'.format(os.getcwd())))
+print(colored('Debug eeprom is enabled', "green"))
 
 ########################################################################################################################
 ########################################################################################################################
