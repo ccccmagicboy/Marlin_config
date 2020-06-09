@@ -292,7 +292,7 @@ print(colored('G26 Q (retraction) used by default between mesh test elements is 
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set G26_XY_FEEDRATE {1:s}'.format(os.getcwd(), '50')))
 print(colored('Feedrate for XY Moves for the G26 Mesh Validation Tool is set to {0:s}mm/s.'.format('50'), "green"))
 #Z_PROBE_END_SCRIPT#####################################################################################################
-replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '//#define Z_PROBE_END_SCRIPT "G1 Z10 F12000\nG1 X15 Y330\nG1 Z0.5\nG1 Z10"', '//#define Z_PROBE_END_SCRIPT "M300 S5000 P300"')
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '//#define Z_PROBE_END_SCRIPT "G1 Z10 F12000\nG1 X15 Y330\nG1 Z0.5\nG1 Z10"', '#define Z_PROBE_END_SCRIPT "M300 S5000 P300"')
 print(colored('beep when G29 finish.', "green"))
 #FAST_PWM_FAN###########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable FAST_PWM_FAN'.format(os.getcwd())))
@@ -534,7 +534,7 @@ print(colored('Time without extruder movement to trigger protection, so set to {
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set HOTEND_IDLE_MIN_TRIGGER {1:s}'.format(os.getcwd(), '100')))
 print(colored('Minimum temperature to enable hotend protection, so set to {0:s} ms.'.format('100'), "green"))
 #STARTUP_COMMANDS#######################################################################################################
-replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define STARTUP_COMMANDS "M17 Z"', '#define STARTUP_COMMANDS "M300 S5000 P300\nM201 X1000 Y1000 Z1000 E6000"')
+replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define STARTUP_COMMANDS "M17 Z"', '#define STARTUP_COMMANDS "M300 S5000 P300"')
 print(colored('beep when start.', "green"))
 #SAVED_POSITIONS########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set SAVED_POSITIONS {1:s}'.format(os.getcwd(), '12')))
