@@ -294,10 +294,10 @@ print(colored('Feedrate for XY Moves for the G26 Mesh Validation Tool is set to 
 #Z_PROBE_END_SCRIPT#####################################################################################################
 replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '//#define Z_PROBE_END_SCRIPT "G1 Z10 F12000\nG1 X15 Y330\nG1 Z0.5\nG1 Z10"', '#define Z_PROBE_END_SCRIPT "M300 S5000 P300"')
 print(colored('beep when G29 finish.', "green"))
-#FAST_PWM_FAN###########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable FAST_PWM_FAN'.format(os.getcwd())))
-print(colored('Removes the PWM noise but increases heating is enabled', "green"))
-#DEBUG_EEPROM_READWRITE###########################################################################################################
+# #FAST_PWM_FAN###########################################################################################################
+# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable FAST_PWM_FAN'.format(os.getcwd())))
+# print(colored('Removes the PWM noise but increases heating is enabled', "green"))
+#DEBUG_EEPROM_READWRITE#################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable DEBUG_EEPROM_READWRITE'.format(os.getcwd())))
 print(colored('Debug eeprom is enabled', "green"))
 
@@ -544,9 +544,9 @@ print(colored('G60/G61 Position Save and Return, so set to {0:s} slots.'.format(
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable HOME_AFTER_DEACTIVATE'.format(os.getcwd())))
 print(colored('Require rehoming after steppers are deactivated, so is enabled.', "green"))
 ########################################################################################################################
-#EMERGENCY_PARSER#######################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable EMERGENCY_PARSER'.format(os.getcwd())))
-print(colored('Add a low-level parser, so is enabled.', "green"))
+# #EMERGENCY_PARSER#######################################################################################################
+# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable EMERGENCY_PARSER'.format(os.getcwd())))
+# print(colored('Add a low-level parser, so is enabled.', "green"))
 ########################################################################################################################
 # #REPETIER_GCODE_M360##################################################################################################
 # subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable REPETIER_GCODE_M360'.format(os.getcwd())))
