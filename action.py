@@ -267,14 +267,14 @@ print(colored('The G28 will disable the leveling', "red"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN'.format(os.getcwd())))
 print(colored('The probe connected to the Z-MIN pin support is disabled', "red"))
 #NOZZLE_TO_PROBE_OFFSET#################################################################################################
-replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }', '#define NOZZLE_TO_PROBE_OFFSET { -41, -14, -1.50 }')
-print(colored('Specify a Probe position as {0:s}'.format('{ -41, -14, -1.50 }'), "green"))
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }', '#define NOZZLE_TO_PROBE_OFFSET { -41, -14, -1.70 }')
+print(colored('Specify a Probe position as {0:s}'.format('{ -41, -14, -1.70 }'), "green"))
 #PROBING_MARGIN#########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PROBING_MARGIN {1:s}'.format(os.getcwd(), '10')))
-print(colored('Most probes should stay away from the edges of the bed, so is set to {0:s}mm.'.format('10'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set PROBING_MARGIN {1:s}'.format(os.getcwd(), '20')))
+print(colored('Most probes should stay away from the edges of the bed, so is set to {0:s}mm.'.format('20'), "green"))
 #XY_PROBE_SPEED#########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set XY_PROBE_SPEED {1:s}'.format(os.getcwd(), '6000')))
-print(colored('X and Y axis travel speed (mm/m) between probes is set to {0:s}mm/min.'.format('6000'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set XY_PROBE_SPEED {1:s}'.format(os.getcwd(), '7200')))
+print(colored('X and Y axis travel speed (mm/m) between probes is set to {0:s}mm/min.'.format('7200'), "green"))
 ########################################################################################################################
 #BED####################################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable DEBUG_LEVELING_FEATURE G26_MESH_VALIDATION MESH_EDIT_GFX_OVERLAY LCD_BED_LEVELING MESH_EDIT_MENU'.format(os.getcwd())))
@@ -291,8 +291,12 @@ print(colored('G26 Q (retraction) used by default between mesh test elements is 
 #G26_XY_FEEDRATE#################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set G26_XY_FEEDRATE {1:s}'.format(os.getcwd(), '50')))
 print(colored('Feedrate for XY Moves for the G26 Mesh Validation Tool is set to {0:s}mm/s.'.format('50'), "green"))
-
-
+#Z_PROBE_END_SCRIPT#####################################################################################################
+replaceAll('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '//#define Z_PROBE_END_SCRIPT "G1 Z10 F12000\nG1 X15 Y330\nG1 Z0.5\nG1 Z10"', '//#define Z_PROBE_END_SCRIPT "M300 S5000 P300"')
+print(colored('beep when G29 finish.', "green"))
+#FAST_PWM_FAN###########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable FAST_PWM_FAN'.format(os.getcwd())))
+print(colored('Removes the PWM noise but increases heating is enabled', "green"))
 
 ########################################################################################################################
 ########################################################################################################################
@@ -527,7 +531,7 @@ print(colored('Time without extruder movement to trigger protection, so set to {
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set HOTEND_IDLE_MIN_TRIGGER {1:s}'.format(os.getcwd(), '100')))
 print(colored('Minimum temperature to enable hotend protection, so set to {0:s} ms.'.format('100'), "green"))
 #STARTUP_COMMANDS#######################################################################################################
-replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define STARTUP_COMMANDS "M17 Z"', '#define STARTUP_COMMANDS "M300 S5000 P300"')
+replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define STARTUP_COMMANDS "M17 Z"', '#define STARTUP_COMMANDS "M300 S5000 P300\nM201 X1000 Y1000 Z1000 E6000"')
 print(colored('beep when start.', "green"))
 #SAVED_POSITIONS########################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set SAVED_POSITIONS {1:s}'.format(os.getcwd(), '12')))
@@ -537,9 +541,9 @@ print(colored('G60/G61 Position Save and Return, so set to {0:s} slots.'.format(
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable HOME_AFTER_DEACTIVATE'.format(os.getcwd())))
 print(colored('Require rehoming after steppers are deactivated, so is enabled.', "green"))
 ########################################################################################################################
-# #EMERGENCY_PARSER##################################################################################################
-# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable EMERGENCY_PARSER'.format(os.getcwd())))
-# print(colored('Add a low-level parser, so is enabled.', "green"))
+#EMERGENCY_PARSER#######################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable EMERGENCY_PARSER'.format(os.getcwd())))
+print(colored('Add a low-level parser, so is enabled.', "green"))
 ########################################################################################################################
 # #REPETIER_GCODE_M360##################################################################################################
 # subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable REPETIER_GCODE_M360'.format(os.getcwd())))
