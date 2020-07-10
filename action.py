@@ -600,11 +600,24 @@ print(colored('Override the mesh area if the automatic (max) area is too large.'
 #MESH_MAX_Y#############################################################################################################
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '//#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)', '#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)')
 print(colored('Override the mesh area if the automatic (max) area is too large.', "green"))
-
-
-
-
-
+# #POWER_MONITOR_CURRENT##################################################################################################
+# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable POWER_MONITOR_CURRENT'.format(os.getcwd())))
+# print(colored('Enable current power monitor, so is enabled.', "green"))
+# #POWER_MONITOR_VOLTAGE##################################################################################################
+# subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable POWER_MONITOR_VOLTAGE'.format(os.getcwd())))
+# print(colored('Enable voltage monitor, so is enabled.', "green"))
+#POWER_MONITOR_VOLTS_PER_AMP##############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set POWER_MONITOR_VOLTS_PER_AMP {1:s}'.format(os.getcwd(), '0.03125')))
+print(colored('use HSTS016L-3 sensor default(-20~20A), so K is set to {0:s}.'.format('0.03125'), "green"))
+#POWER_MONITOR_CURRENT_OFFSET#############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set POWER_MONITOR_CURRENT_OFFSET {1:s}'.format(os.getcwd(), '-52.8')))
+print(colored('use HSTS016L-3 sensor default(-20~20A), so B is set to {0:s}.'.format('-52.8'), "green"))
+#POWER_MONITOR_VOLTS_PER_VOLT##############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set POWER_MONITOR_VOLTS_PER_VOLT {1:s}'.format(os.getcwd(), '0.01')))
+print(colored('use voltage divisor, so K is set to {0:s}.'.format('0.01'), "green"))
+#POWER_MONITOR_FIXED_VOLTAGE##############################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set POWER_MONITOR_FIXED_VOLTAGE {1:s}'.format(os.getcwd(), '12.0')))
+print(colored('use fix voltage, so set to {0:s}V.'.format('12.0'), "green"))
 
 str = '0000'
 if None != str:
