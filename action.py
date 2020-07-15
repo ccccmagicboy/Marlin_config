@@ -612,12 +612,16 @@ print(colored('use HSTS016L-3 sensor default(-20~20A), so K is set to {0:s}.'.fo
 #POWER_MONITOR_CURRENT_OFFSET#############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set POWER_MONITOR_CURRENT_OFFSET {1:s}'.format(os.getcwd(), '-52.8')))
 print(colored('use HSTS016L-3 sensor default(-20~20A), so B is set to {0:s}.'.format('-52.8'), "green"))
-#POWER_MONITOR_VOLTS_PER_VOLT##############################################################################################
+#POWER_MONITOR_VOLTS_PER_VOLT#############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set POWER_MONITOR_VOLTS_PER_VOLT {1:s}'.format(os.getcwd(), '0.01')))
 print(colored('use voltage divisor, so K is set to {0:s}.'.format('0.01'), "green"))
 #POWER_MONITOR_FIXED_VOLTAGE##############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set POWER_MONITOR_FIXED_VOLTAGE {1:s}'.format(os.getcwd(), '12.0')))
 print(colored('use fix voltage, so set to {0:s}V.'.format('12.0'), "green"))
+#REPORT_FAN_CHANGE########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable REPORT_FAN_CHANGE'.format(os.getcwd())))
+print(colored('Enable report the new fan speed when changed by M106, so is enabled.', "green"))
+
 
 str = '0000'
 if None != str:
