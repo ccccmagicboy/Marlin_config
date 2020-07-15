@@ -478,11 +478,11 @@ print(colored('A bigger font is available for edit items, so is enabled.', "gree
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable USE_SMALL_INFOFONT'.format(os.getcwd())))
 print(colored('A smaller font may be used on the Info Screen, so is disabled.', "red"))
 #BABYSTEPPING###########################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable BABYSTEPPING DOUBLECLICK_FOR_Z_BABYSTEPPING BABYSTEP_DISPLAY_TOTAL MOVE_Z_WHEN_IDLE BABYSTEP_MILLIMETER_UNITS'.format(os.getcwd())))
 print(colored('We need babystepping, so is enabled.', "green"))
 #BABYSTEP_MULTIPLICATOR_Z###############################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BABYSTEP_MULTIPLICATOR_Z {1:s}'.format(os.getcwd(), '5')))
-print(colored('z babystepping multiplicator is set to {0:s}, so one turn move z 0.01 * 5 = 0.05'.format('5'), "green"))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set BABYSTEP_MULTIPLICATOR_Z {1:s}'.format(os.getcwd(), '0.02')))
+print(colored('z babystepping multiplicator is set to {0:s}, so one turn move z {0:s}mm'.format('0.02'), "green"))
 #MOVE_Z_IDLE_MULTIPLICATOR##############################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set MOVE_Z_IDLE_MULTIPLICATOR {1:s}'.format(os.getcwd(), '10')))
 print(colored('z idle multiplicator is set to {0:s}mm.'.format('10'), "green"))
