@@ -585,6 +585,14 @@ print(colored('Enable graphical overlay on Z-offset editor, so is enabled.', "gr
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_5 "Home & Info"', '#define USER_DESC_5 "Reset"')
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_5 "G28', '#define USER_GCODE_5 "M997')
 print(colored('Add reset the board menu command', "green"))
+
+#USER 6##################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_add USER_DESC_6 "test"'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_add USER_GCODE_6 "M997"'.format(os.getcwd())))
+#USER 7##################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_add USER_DESC_7 "test"'.format(os.getcwd())))
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_add USER_GCODE_7 "M997"'.format(os.getcwd())))
+
 #G29_RETRY_AND_RECOVER##################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable G29_RETRY_AND_RECOVER'.format(os.getcwd())))
 print(colored('Repeatedly attempt G29 leveling until it succeeds, No!!! so is disabled.', "red"))
