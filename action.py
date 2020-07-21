@@ -594,8 +594,64 @@ print(colored('Add reset the board menu command', "green"))
 append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_6 "test1"')
 append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_6 "M997"')
 #USER 7#################################################################################################################
-append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_6 "test2"')
-append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_6 "M997"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_7 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_7 "M997"')
+#USER 8#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_8 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_8 "M997"')
+#USER 9#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_9 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_9 "M997"')
+#USER 10#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_10 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_10 "M997"')
+#USER 11#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_11 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_11 "M997"')
+
+#USER 12#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_12 "test1"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_12 "M997"')
+#USER 13#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_13 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_13 "M997"')
+#USER 14#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_14 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_14 "M997"')
+#USER 15#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_15 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_15 "M997"')
+#USER 16#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_16 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_16 "M997"')
+#USER 17#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_17 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_17 "M997"')
+
+#USER 18#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_18 "test1"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_18 "M997"')
+#USER 19#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_19 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_19 "M997"')
+#USER 20#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_20 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_20 "M997"')
+#USER 21#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_21 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_21 "M997"')
+#USER 22#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_22 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_22 "M997"')
+#USER 23#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_23 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_23 "M997"')
+#USER 24#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_24 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_24 "M997"')
+#USER 25#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_25 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_25 "M997"')
 
 #G29_RETRY_AND_RECOVER##################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable G29_RETRY_AND_RECOVER'.format(os.getcwd())))
