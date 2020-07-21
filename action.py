@@ -14,7 +14,7 @@ def replaceAll(file,searchExp,replaceExp):
         
 def append_str(file, text):
     with open(file, "a") as myfile:
-        myfile.write(text)
+        myfile.write(text+'\n')
 
 def send_cmd(command):
     print(command)
@@ -590,10 +590,12 @@ replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER
 replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_5 "G28', '#define USER_GCODE_5 "M997')
 print(colored('Add reset the board menu command', "green"))
 
-#USER 6##################################################################################################
-append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_6 "test"')
+#USER 6#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_6 "test1"')
 append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_6 "M997"')
-#USER 7##################################################################################################
+#USER 7#################################################################################################################
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_6 "test2"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_6 "M997"')
 
 #G29_RETRY_AND_RECOVER##################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable G29_RETRY_AND_RECOVER'.format(os.getcwd())))
