@@ -11,6 +11,10 @@ def replaceAll(file,searchExp,replaceExp):
         if searchExp in line:
             line = line.replace(searchExp,replaceExp)
         sys.stdout.write(line)
+        
+def append_str(file, text):
+    with open(file, "a") as myfile:
+        myfile.write(text)
 
 def send_cmd(command):
     print(command)
@@ -587,11 +591,9 @@ replaceAll('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER
 print(colored('Add reset the board menu command', "green"))
 
 #USER 6##################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_add USER_DESC_6 "test"'.format(os.getcwd())))
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_add USER_GCODE_6 "M997"'.format(os.getcwd())))
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_DESC_6 "test"')
+append_str('{0:s}/Marlin/Configuration_adv.h'.format(os.getcwd()), '#define USER_GCODE_6 "M997"')
 #USER 7##################################################################################################
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_add USER_DESC_7 "test"'.format(os.getcwd())))
-subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_add USER_GCODE_7 "M997"'.format(os.getcwd())))
 
 #G29_RETRY_AND_RECOVER##################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_disable G29_RETRY_AND_RECOVER'.format(os.getcwd())))
