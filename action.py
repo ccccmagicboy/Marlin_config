@@ -172,6 +172,11 @@ print(colored('The neopixel led startup test is enabled', "green"))
 #HOMING_FEEDRATE_Z######################################################################################################
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_set HOMING_FEEDRATE_Z {1:s}'.format(os.getcwd(), '(25*60)')))
 print(colored('z axis homing speed is set to {0:s}.'.format('(25*60)'), "green"))
+#SLIM_LCD_MENUS#########################################################################################################
+subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable SLIM_LCD_MENUS'.format(os.getcwd())))
+print(colored('The slim menu is enabled', "green"))
+#LCD(Need to update after PR)
+append_str('{0:s}/Marlin/Configuration.h'.format(os.getcwd()), '#define U8GLIB_SH1106')
 
 
 
