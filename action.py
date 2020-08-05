@@ -690,6 +690,15 @@ print(colored('use fix voltage, so set to {0:s}V.'.format('12.0'), "green"))
 subprocess.call(shlex.split('{0:s}/buildroot/bin/opt_enable REPORT_FAN_CHANGE'.format(os.getcwd())))
 print(colored('Enable report the new fan speed when changed by M106, so is enabled.', "green"))
 
+######################################################OTHER#############################################################
+######################################################OTHER#############################################################
+######################################################OTHER#############################################################
+######################################################OTHER#############################################################
+######################################################OTHER#############################################################
+######################################################OTHER#############################################################
+#(#18833)###############################################################################################################
+replaceAll('{0:s}/Marlin/src/HAL/STM32F1/inc/SanityCheck.h'.format(os.getcwd()), '#error "NEOPIXEL_LED (Adafruit NeoPixel) is not supported for HAL/STM32F1. Comment out this line to proceed at your own risk!"', '//#error "NEOPIXEL_LED (Adafruit NeoPixel) is not supported for HAL/STM32F1. Comment out this line to proceed at your own risk!"')
+########################################################################################################################
 
 str = '0000'
 if None != str:
